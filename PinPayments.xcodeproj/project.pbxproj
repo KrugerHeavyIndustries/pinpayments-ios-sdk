@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */ = {isa = PBXBuildFile; fileRef = B15B96311F262A6F00A51302 /* PinCharge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B10E13E81F4AB7E10066F85B /* NSObject+Json.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E13E61F4AB7E10066F85B /* NSObject+Json.h */; };
+		B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E13E71F4AB7E10066F85B /* NSObject+Json.m */; };
+		B15B96301F262A5100A51302 /* PinCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = B15B962F1F262A5100A51302 /* PinCharge.m */; };
+		B15B96341F262EB600A51302 /* PinCustomer.h in Headers */ = {isa = PBXBuildFile; fileRef = B15B96321F262EB600A51302 /* PinCustomer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B15B96351F262EB600A51302 /* PinCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = B15B96331F262EB600A51302 /* PinCustomer.m */; };
+		B16554DE1F150FA400642E09 /* PinClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B16554D91F150FA400642E09 /* PinClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B16554DF1F150FA400642E09 /* PinClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554DA1F150FA400642E09 /* PinClient.m */; };
+		B16554E01F150FA400642E09 /* PinClientConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B16554DB1F150FA400642E09 /* PinClientConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B16554E51F150FC400642E09 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16554E41F150FC400642E09 /* Info.plist */; };
+		B16554E71F1511A600642E09 /* PinClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554E61F1511A600642E09 /* PinClientConfiguration.m */; };
+		B16554EC1F15192400642E09 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16554E91F15192400642E09 /* Info.plist */; };
+		B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */; };
+		B16554EE1F15192400642E09 /* PinClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EB1F15192400642E09 /* PinClientTests.m */; };
+		B193D6D51F0290D70066B172 /* PinPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B193D6CB1F0290D70066B172 /* PinPayments.framework */; };
+		B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C78D9D1F3C1C3500BBA862 /* PinCard.m */; };
+		B1C78DBB1F3C2B8400BBA862 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C78DAB1F3C29F000BBA862 /* AFNetworking.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B193D6D61F0290D70066B172 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B193D6C21F0290D70066B172 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B193D6CA1F0290D70066B172;
+			remoteInfo = PinClient;
+		};
+		B1C78DAA1F3C29F000BBA862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522391BBF104D00859F49;
+			remoteInfo = "AFNetworking iOS";
+		};
+		B1C78DAC1F3C29F000BBA862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522651BBF129200859F49;
+			remoteInfo = "AFNetworking watchOS";
+		};
+		B1C78DAE1F3C29F000BBA862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 299522771BBF136400859F49;
+			remoteInfo = "AFNetworking OS X";
+		};
+		B1C78DB01F3C29F000BBA862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0A51BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS";
+		};
+		B1C78DB21F3C29F000BBA862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C3B1BC2C79500FD3B3E;
+			remoteInfo = "AFNetworking iOS Tests";
+		};
+		B1C78DB41F3C29F000BBA862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 298D7C4A1BC2C7B200FD3B3E;
+			remoteInfo = "AFNetworking Mac OS X Tests";
+		};
+		B1C78DB61F3C29F000BBA862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2987B0AE1BC408A200179A4C;
+			remoteInfo = "AFNetworking tvOS Tests";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B10E13E61F4AB7E10066F85B /* NSObject+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Json.h"; path = "PinPayments/NSObject+Json.h"; sourceTree = "<group>"; };
+		B10E13E71F4AB7E10066F85B /* NSObject+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Json.m"; path = "PinPayments/NSObject+Json.m"; sourceTree = "<group>"; };
+		B15B962F1F262A5100A51302 /* PinCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCharge.m; path = PinPayments/PinCharge.m; sourceTree = "<group>"; };
+		B15B96311F262A6F00A51302 /* PinCharge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCharge.h; path = PinPayments/PinCharge.h; sourceTree = "<group>"; };
+		B15B96321F262EB600A51302 /* PinCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinCustomer.h; path = PinPayments/PinCustomer.h; sourceTree = "<group>"; };
+		B15B96331F262EB600A51302 /* PinCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCustomer.m; path = PinPayments/PinCustomer.m; sourceTree = "<group>"; };
+		B16554D91F150FA400642E09 /* PinClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinClient.h; path = PinPayments/PinClient.h; sourceTree = "<group>"; };
+		B16554DA1F150FA400642E09 /* PinClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClient.m; path = PinPayments/PinClient.m; sourceTree = "<group>"; };
+		B16554DB1F150FA400642E09 /* PinClientConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinClientConfiguration.h; path = PinPayments/PinClientConfiguration.h; sourceTree = "<group>"; };
+		B16554E41F150FC400642E09 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PinPayments/Resources/Info.plist; sourceTree = "<group>"; };
+		B16554E61F1511A600642E09 /* PinClientConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClientConfiguration.m; path = PinPayments/PinClientConfiguration.m; sourceTree = "<group>"; };
+		B16554E91F15192400642E09 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClientConfigurationTests.m; path = Tests/PinClientConfigurationTests.m; sourceTree = "<group>"; };
+		B16554EB1F15192400642E09 /* PinClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClientTests.m; path = Tests/PinClientTests.m; sourceTree = "<group>"; };
+		B193D6CB1F0290D70066B172 /* PinPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PinPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B193D6D41F0290D70066B172 /* PinPaymentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinPaymentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1C78D9C1F3C1B2400BBA862 /* PinCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCard.h; path = PinPayments/PinCard.h; sourceTree = "<group>"; };
+		B1C78D9D1F3C1C3500BBA862 /* PinCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCard.m; path = PinPayments/PinCard.m; sourceTree = "<group>"; };
+		B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = dependencies/AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B193D6C71F0290D70066B172 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1C78DBB1F3C2B8400BBA862 /* AFNetworking.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B193D6D11F0290D70066B172 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B193D6D51F0290D70066B172 /* PinPayments.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B10E13E51F4AB7AE0066F85B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B10E13E61F4AB7E10066F85B /* NSObject+Json.h */,
+				B10E13E71F4AB7E10066F85B /* NSObject+Json.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		B16554D81F150F6B00642E09 /* PinPayments */ = {
+			isa = PBXGroup;
+			children = (
+				B10E13E51F4AB7AE0066F85B /* Categories */,
+				B16554E31F150FB300642E09 /* Resources */,
+				B16554D91F150FA400642E09 /* PinClient.h */,
+				B16554DA1F150FA400642E09 /* PinClient.m */,
+				B16554DB1F150FA400642E09 /* PinClientConfiguration.h */,
+				B16554E61F1511A600642E09 /* PinClientConfiguration.m */,
+				B15B962F1F262A5100A51302 /* PinCharge.m */,
+				B15B96311F262A6F00A51302 /* PinCharge.h */,
+				B15B96321F262EB600A51302 /* PinCustomer.h */,
+				B15B96331F262EB600A51302 /* PinCustomer.m */,
+				B1C78D9C1F3C1B2400BBA862 /* PinCard.h */,
+				B1C78D9D1F3C1C3500BBA862 /* PinCard.m */,
+			);
+			name = PinPayments;
+			sourceTree = "<group>";
+		};
+		B16554E31F150FB300642E09 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B16554E41F150FC400642E09 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B16554E81F15191700642E09 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				B16554E91F15192400642E09 /* Info.plist */,
+				B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */,
+				B16554EB1F15192400642E09 /* PinClientTests.m */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
+		B193D6C11F0290D70066B172 = {
+			isa = PBXGroup;
+			children = (
+				B16554D81F150F6B00642E09 /* PinPayments */,
+				B16554E81F15191700642E09 /* Test */,
+				B193D6CC1F0290D70066B172 /* Products */,
+				B1C78D9F1F3C29EF00BBA862 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B193D6CC1F0290D70066B172 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B193D6CB1F0290D70066B172 /* PinPayments.framework */,
+				B193D6D41F0290D70066B172 /* PinPaymentsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1C78D9F1F3C29EF00BBA862 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1C78DA11F3C29F000BBA862 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1C78DAB1F3C29F000BBA862 /* AFNetworking.framework */,
+				B1C78DAD1F3C29F000BBA862 /* AFNetworking.framework */,
+				B1C78DAF1F3C29F000BBA862 /* AFNetworking.framework */,
+				B1C78DB11F3C29F000BBA862 /* AFNetworking.framework */,
+				B1C78DB31F3C29F000BBA862 /* AFNetworking iOS Tests.xctest */,
+				B1C78DB51F3C29F000BBA862 /* AFNetworking Mac OS X Tests.xctest */,
+				B1C78DB71F3C29F000BBA862 /* AFNetworking tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B193D6C81F0290D70066B172 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10E13E81F4AB7E10066F85B /* NSObject+Json.h in Headers */,
+				B16554E01F150FA400642E09 /* PinClientConfiguration.h in Headers */,
+				B15B96341F262EB600A51302 /* PinCustomer.h in Headers */,
+				B16554DE1F150FA400642E09 /* PinClient.h in Headers */,
+				B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B193D6CA1F0290D70066B172 /* PinPayments */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B193D6DF1F0290D70066B172 /* Build configuration list for PBXNativeTarget "PinPayments" */;
+			buildPhases = (
+				B193D6C61F0290D70066B172 /* Sources */,
+				B193D6C71F0290D70066B172 /* Frameworks */,
+				B193D6C81F0290D70066B172 /* Headers */,
+				B193D6C91F0290D70066B172 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PinPayments;
+			productName = PinClient;
+			productReference = B193D6CB1F0290D70066B172 /* PinPayments.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B193D6D31F0290D70066B172 /* PinPaymentsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B193D6E21F0290D70066B172 /* Build configuration list for PBXNativeTarget "PinPaymentsTests" */;
+			buildPhases = (
+				B193D6D01F0290D70066B172 /* Sources */,
+				B193D6D11F0290D70066B172 /* Frameworks */,
+				B193D6D21F0290D70066B172 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B193D6D71F0290D70066B172 /* PBXTargetDependency */,
+			);
+			name = PinPaymentsTests;
+			productName = PinClientTests;
+			productReference = B193D6D41F0290D70066B172 /* PinPaymentsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B193D6C21F0290D70066B172 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Pin Payments";
+				TargetAttributes = {
+					B193D6CA1F0290D70066B172 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					B193D6D31F0290D70066B172 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B193D6C51F0290D70066B172 /* Build configuration list for PBXProject "PinPayments" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B193D6C11F0290D70066B172;
+			productRefGroup = B193D6CC1F0290D70066B172 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B1C78DA11F3C29F000BBA862 /* Products */;
+					ProjectRef = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				B193D6CA1F0290D70066B172 /* PinPayments */,
+				B193D6D31F0290D70066B172 /* PinPaymentsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B1C78DAB1F3C29F000BBA862 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = B1C78DAA1F3C29F000BBA862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1C78DAD1F3C29F000BBA862 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = B1C78DAC1F3C29F000BBA862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1C78DAF1F3C29F000BBA862 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = B1C78DAE1F3C29F000BBA862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1C78DB11F3C29F000BBA862 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = B1C78DB01F3C29F000BBA862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1C78DB31F3C29F000BBA862 /* AFNetworking iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking iOS Tests.xctest";
+			remoteRef = B1C78DB21F3C29F000BBA862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1C78DB51F3C29F000BBA862 /* AFNetworking Mac OS X Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking Mac OS X Tests.xctest";
+			remoteRef = B1C78DB41F3C29F000BBA862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1C78DB71F3C29F000BBA862 /* AFNetworking tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AFNetworking tvOS Tests.xctest";
+			remoteRef = B1C78DB61F3C29F000BBA862 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B193D6C91F0290D70066B172 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16554E51F150FC400642E09 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B193D6D21F0290D70066B172 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16554EC1F15192400642E09 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B193D6C61F0290D70066B172 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16554DF1F150FA400642E09 /* PinClient.m in Sources */,
+				B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */,
+				B15B96351F262EB600A51302 /* PinCustomer.m in Sources */,
+				B15B96301F262A5100A51302 /* PinCharge.m in Sources */,
+				B16554E71F1511A600642E09 /* PinClientConfiguration.m in Sources */,
+				B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B193D6D01F0290D70066B172 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B16554EE1F15192400642E09 /* PinClientTests.m in Sources */,
+				B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B193D6D71F0290D70066B172 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B193D6CA1F0290D70066B172 /* PinPayments */;
+			targetProxy = B193D6D61F0290D70066B172 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B193D6DD1F0290D70066B172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B193D6DE1F0290D70066B172 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B193D6E01F0290D70066B172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/PinPayments/Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B193D6E11F0290D70066B172 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/PinPayments/Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B193D6E31F0290D70066B172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.PinClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B193D6E41F0290D70066B172 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.PinClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B193D6C51F0290D70066B172 /* Build configuration list for PBXProject "PinPayments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B193D6DD1F0290D70066B172 /* Debug */,
+				B193D6DE1F0290D70066B172 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B193D6DF1F0290D70066B172 /* Build configuration list for PBXNativeTarget "PinPayments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B193D6E01F0290D70066B172 /* Debug */,
+				B193D6E11F0290D70066B172 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B193D6E21F0290D70066B172 /* Build configuration list for PBXNativeTarget "PinPaymentsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B193D6E31F0290D70066B172 /* Debug */,
+				B193D6E41F0290D70066B172 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B193D6C21F0290D70066B172 /* Project object */;
+}
