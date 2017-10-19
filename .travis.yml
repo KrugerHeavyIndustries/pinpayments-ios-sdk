@@ -1,0 +1,11 @@
+branches:
+  only:
+    - feature/travis
+language: objective-c
+os: osx
+osx_image: xcode9
+install: 
+  - bundle install
+script:
+  - travis_wait 30 set -o pipefail && xcodebuild test -workspace PinPayments.xcworkspace -scheme UnitTests -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'
+
