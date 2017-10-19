@@ -45,12 +45,12 @@
 
 - (void)testConfigurationWithBlock {
     PinClientConfiguration *configuration = [PinClientConfiguration configurationWithBlock:^(id<PinMutableClientConfiguration> configuration) {
-        configuration.privateKey = @"foo";
+        configuration.secretKey = @"foo";
         configuration.publishableKey = @"bar";
         configuration.server = @"http://localhost";
     }];
     
-    XCTAssertEqualObjects(configuration.privateKey, @"foo");
+    XCTAssertEqualObjects(configuration.secretKey, @"foo");
     XCTAssertEqualObjects(configuration.publishableKey, @"bar");
     XCTAssertEqualObjects(configuration.server, @"http://localhost");
 }
