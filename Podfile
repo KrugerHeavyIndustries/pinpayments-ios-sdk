@@ -6,4 +6,8 @@ use_frameworks!
 
 target 'PinPayments' do 
   pod 'AFNetworking', '~> 3.0'
+
+  target 'PinPaymentsTests' do
+    inherit! :search_paths
+  end
 end
