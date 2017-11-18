@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1858664C97DF88E241AC0696 /* Pods_PinPaymentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E1442E9B99CA0103DD6FDB3 /* Pods_PinPaymentsTests.framework */; };
+		696CAD52ADAFA1A590C0EF19 /* Pods_PinPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26525827068B8C243E1A4404 /* Pods_PinPayments.framework */; };
 		B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */ = {isa = PBXBuildFile; fileRef = B15B96311F262A6F00A51302 /* PinCharge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B10E13E81F4AB7E10066F85B /* NSObject+Json.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E13E61F4AB7E10066F85B /* NSObject+Json.h */; };
 		B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E13E71F4AB7E10066F85B /* NSObject+Json.m */; };
@@ -22,8 +24,8 @@
 		B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */; };
 		B16554EE1F15192400642E09 /* PinClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EB1F15192400642E09 /* PinClientTests.m */; };
 		B193D6D51F0290D70066B172 /* PinPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B193D6CB1F0290D70066B172 /* PinPayments.framework */; };
+		B1A1C5D51FC06F4F00B9B427 /* PinPayments.h in Headers */ = {isa = PBXBuildFile; fileRef = B12BB2F61FC06A170051A5CA /* PinPayments.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C78D9D1F3C1C3500BBA862 /* PinCard.m */; };
-		B1C78DBB1F3C2B8400BBA862 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C78DAB1F3C29F000BBA862 /* AFNetworking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,60 +36,17 @@
 			remoteGlobalIDString = B193D6CA1F0290D70066B172;
 			remoteInfo = PinClient;
 		};
-		B1C78DAA1F3C29F000BBA862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 299522391BBF104D00859F49;
-			remoteInfo = "AFNetworking iOS";
-		};
-		B1C78DAC1F3C29F000BBA862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 299522651BBF129200859F49;
-			remoteInfo = "AFNetworking watchOS";
-		};
-		B1C78DAE1F3C29F000BBA862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 299522771BBF136400859F49;
-			remoteInfo = "AFNetworking OS X";
-		};
-		B1C78DB01F3C29F000BBA862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2987B0A51BC408A200179A4C;
-			remoteInfo = "AFNetworking tvOS";
-		};
-		B1C78DB21F3C29F000BBA862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 298D7C3B1BC2C79500FD3B3E;
-			remoteInfo = "AFNetworking iOS Tests";
-		};
-		B1C78DB41F3C29F000BBA862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 298D7C4A1BC2C7B200FD3B3E;
-			remoteInfo = "AFNetworking Mac OS X Tests";
-		};
-		B1C78DB61F3C29F000BBA862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2987B0AE1BC408A200179A4C;
-			remoteInfo = "AFNetworking tvOS Tests";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08C296614C6AE8CA5494E329 /* Pods-PinPaymentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPaymentsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PinPaymentsTests/Pods-PinPaymentsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		26525827068B8C243E1A4404 /* Pods_PinPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ABAAA9F61ABBC4A21D2F107 /* Pods-PinPayments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPayments.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PinPayments/Pods-PinPayments.debug.xcconfig"; sourceTree = "<group>"; };
+		5E1442E9B99CA0103DD6FDB3 /* Pods_PinPaymentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPaymentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66DCE6324B35B77119212B0A /* Pods-PinPaymentsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPaymentsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinPaymentsTests/Pods-PinPaymentsTests.release.xcconfig"; sourceTree = "<group>"; };
 		B10E13E61F4AB7E10066F85B /* NSObject+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Json.h"; path = "PinPayments/NSObject+Json.h"; sourceTree = "<group>"; };
 		B10E13E71F4AB7E10066F85B /* NSObject+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Json.m"; path = "PinPayments/NSObject+Json.m"; sourceTree = "<group>"; };
+		B12BB2F61FC06A170051A5CA /* PinPayments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinPayments.h; path = PinPayments/PinPayments.h; sourceTree = "<group>"; };
 		B15B962F1F262A5100A51302 /* PinCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCharge.m; path = PinPayments/PinCharge.m; sourceTree = "<group>"; };
 		B15B96311F262A6F00A51302 /* PinCharge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCharge.h; path = PinPayments/PinCharge.h; sourceTree = "<group>"; };
 		B15B96321F262EB600A51302 /* PinCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinCustomer.h; path = PinPayments/PinCustomer.h; sourceTree = "<group>"; };
@@ -104,7 +63,8 @@
 		B193D6D41F0290D70066B172 /* PinPaymentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinPaymentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C78D9C1F3C1B2400BBA862 /* PinCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCard.h; path = PinPayments/PinCard.h; sourceTree = "<group>"; };
 		B1C78D9D1F3C1C3500BBA862 /* PinCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCard.m; path = PinPayments/PinCard.m; sourceTree = "<group>"; };
-		B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = dependencies/AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
+		B1F247BD1FC069B600526161 /* PinPayments.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = PinPayments.modulemap; path = PinPayments/PinPayments.modulemap; sourceTree = "<group>"; };
+		EC36E60929216B7B2BF92445 /* Pods-PinPayments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPayments.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinPayments/Pods-PinPayments.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1C78DBB1F3C2B8400BBA862 /* AFNetworking.framework in Frameworks */,
+				696CAD52ADAFA1A590C0EF19 /* Pods_PinPayments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,12 +81,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				B193D6D51F0290D70066B172 /* PinPayments.framework in Frameworks */,
+				1858664C97DF88E241AC0696 /* Pods_PinPaymentsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9EFF9FF84087EC8394DC84F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4ABAAA9F61ABBC4A21D2F107 /* Pods-PinPayments.debug.xcconfig */,
+				EC36E60929216B7B2BF92445 /* Pods-PinPayments.release.xcconfig */,
+				08C296614C6AE8CA5494E329 /* Pods-PinPaymentsTests.debug.xcconfig */,
+				66DCE6324B35B77119212B0A /* Pods-PinPaymentsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B10E13E51F4AB7AE0066F85B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +111,7 @@
 		B16554D81F150F6B00642E09 /* PinPayments */ = {
 			isa = PBXGroup;
 			children = (
+				B1F247BD1FC069B600526161 /* PinPayments.modulemap */,
 				B10E13E51F4AB7AE0066F85B /* Categories */,
 				B16554E31F150FB300642E09 /* Resources */,
 				B16554D91F150FA400642E09 /* PinClient.h */,
@@ -151,6 +124,7 @@
 				B15B96331F262EB600A51302 /* PinCustomer.m */,
 				B1C78D9C1F3C1B2400BBA862 /* PinCard.h */,
 				B1C78D9D1F3C1C3500BBA862 /* PinCard.m */,
+				B12BB2F61FC06A170051A5CA /* PinPayments.h */,
 			);
 			name = PinPayments;
 			sourceTree = "<group>";
@@ -180,6 +154,7 @@
 				B16554E81F15191700642E09 /* Test */,
 				B193D6CC1F0290D70066B172 /* Products */,
 				B1C78D9F1F3C29EF00BBA862 /* Frameworks */,
+				9EFF9FF84087EC8394DC84F3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,23 +170,10 @@
 		B1C78D9F1F3C29EF00BBA862 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */,
+				26525827068B8C243E1A4404 /* Pods_PinPayments.framework */,
+				5E1442E9B99CA0103DD6FDB3 /* Pods_PinPaymentsTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B1C78DA11F3C29F000BBA862 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B1C78DAB1F3C29F000BBA862 /* AFNetworking.framework */,
-				B1C78DAD1F3C29F000BBA862 /* AFNetworking.framework */,
-				B1C78DAF1F3C29F000BBA862 /* AFNetworking.framework */,
-				B1C78DB11F3C29F000BBA862 /* AFNetworking.framework */,
-				B1C78DB31F3C29F000BBA862 /* AFNetworking iOS Tests.xctest */,
-				B1C78DB51F3C29F000BBA862 /* AFNetworking Mac OS X Tests.xctest */,
-				B1C78DB71F3C29F000BBA862 /* AFNetworking tvOS Tests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +183,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A1C5D51FC06F4F00B9B427 /* PinPayments.h in Headers */,
 				B10E13E81F4AB7E10066F85B /* NSObject+Json.h in Headers */,
 				B16554E01F150FA400642E09 /* PinClientConfiguration.h in Headers */,
 				B15B96341F262EB600A51302 /* PinCustomer.h in Headers */,
@@ -236,10 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B193D6DF1F0290D70066B172 /* Build configuration list for PBXNativeTarget "PinPayments" */;
 			buildPhases = (
+				8C25ED1493C4F794BA0A6C70 /* [CP] Check Pods Manifest.lock */,
 				B193D6C61F0290D70066B172 /* Sources */,
 				B193D6C71F0290D70066B172 /* Frameworks */,
 				B193D6C81F0290D70066B172 /* Headers */,
 				B193D6C91F0290D70066B172 /* Resources */,
+				E93288851C1455E25E591767 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B193D6E21F0290D70066B172 /* Build configuration list for PBXNativeTarget "PinPaymentsTests" */;
 			buildPhases = (
+				9E7579F5FCB2B7D4D8B9C34F /* [CP] Check Pods Manifest.lock */,
 				B193D6D01F0290D70066B172 /* Sources */,
 				B193D6D11F0290D70066B172 /* Frameworks */,
 				B193D6D21F0290D70066B172 /* Resources */,
+				4C4656691ADCEE50CCF4069B /* [CP] Embed Pods Frameworks */,
+				9A11F2FA9E29D4C15DA586B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,12 +265,6 @@
 			mainGroup = B193D6C11F0290D70066B172;
 			productRefGroup = B193D6CC1F0290D70066B172 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = B1C78DA11F3C29F000BBA862 /* Products */;
-					ProjectRef = B1C78DA01F3C29F000BBA862 /* AFNetworking.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				B193D6CA1F0290D70066B172 /* PinPayments */,
@@ -310,58 +272,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		B1C78DAB1F3C29F000BBA862 /* AFNetworking.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AFNetworking.framework;
-			remoteRef = B1C78DAA1F3C29F000BBA862 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B1C78DAD1F3C29F000BBA862 /* AFNetworking.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AFNetworking.framework;
-			remoteRef = B1C78DAC1F3C29F000BBA862 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B1C78DAF1F3C29F000BBA862 /* AFNetworking.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AFNetworking.framework;
-			remoteRef = B1C78DAE1F3C29F000BBA862 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B1C78DB11F3C29F000BBA862 /* AFNetworking.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AFNetworking.framework;
-			remoteRef = B1C78DB01F3C29F000BBA862 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B1C78DB31F3C29F000BBA862 /* AFNetworking iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "AFNetworking iOS Tests.xctest";
-			remoteRef = B1C78DB21F3C29F000BBA862 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B1C78DB51F3C29F000BBA862 /* AFNetworking Mac OS X Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "AFNetworking Mac OS X Tests.xctest";
-			remoteRef = B1C78DB41F3C29F000BBA862 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B1C78DB71F3C29F000BBA862 /* AFNetworking tvOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "AFNetworking tvOS Tests.xctest";
-			remoteRef = B1C78DB61F3C29F000BBA862 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B193D6C91F0290D70066B172 /* Resources */ = {
@@ -381,6 +291,93 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C4656691ADCEE50CCF4069B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PinPaymentsTests/Pods-PinPaymentsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PinPaymentsTests/Pods-PinPaymentsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C25ED1493C4F794BA0A6C70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinPayments-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A11F2FA9E29D4C15DA586B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PinPaymentsTests/Pods-PinPaymentsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E7579F5FCB2B7D4D8B9C34F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinPaymentsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E93288851C1455E25E591767 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PinPayments/Pods-PinPayments-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B193D6C61F0290D70066B172 /* Sources */ = {
@@ -516,6 +513,7 @@
 		};
 		B193D6E01F0290D70066B172 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ABAAA9F61ABBC4A21D2F107 /* Pods-PinPayments.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -525,6 +523,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/PinPayments/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/PinPayments/PinPayments.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -533,6 +532,7 @@
 		};
 		B193D6E11F0290D70066B172 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC36E60929216B7B2BF92445 /* Pods-PinPayments.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -542,6 +542,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/PinPayments/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "$(SRCROOT)/PinPayments/PinPayments.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -550,6 +551,7 @@
 		};
 		B193D6E31F0290D70066B172 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08C296614C6AE8CA5494E329 /* Pods-PinPaymentsTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -560,6 +562,7 @@
 		};
 		B193D6E41F0290D70066B172 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66DCE6324B35B77119212B0A /* Pods-PinPaymentsTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

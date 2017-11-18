@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B14593071F46D0B00033149C /* PinPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14593061F46D0B00033149C /* PinPayments.framework */; };
+		36B2B1B0CF3CCE5EF38AF78D /* Pods_PinPaymentsStartProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9EF07827D30E47D5681DB0 /* Pods_PinPaymentsStartProject.framework */; };
 		B184862E1F46CBAB004185B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B184862D1F46CBAB004185B1 /* main.m */; };
 		B18486311F46CBAB004185B1 /* PinPaymentsStartProjectAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B18486301F46CBAB004185B1 /* PinPaymentsStartProjectAppDelegate.m */; };
 		B18486341F46CBAB004185B1 /* PinPaymentsStartProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18486331F46CBAB004185B1 /* PinPaymentsStartProjectViewController.m */; };
@@ -16,8 +16,36 @@
 		B184863C1F46CBAB004185B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B184863A1F46CBAB004185B1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B1A511181FC0741E00364671 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17D81351FC06632000E9E3E /* PinPayments.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B193D6CA1F0290D70066B172;
+			remoteInfo = PinPayments;
+		};
+		B1F247B61FC0671500526161 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17D81351FC06632000E9E3E /* PinPayments.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B193D6CB1F0290D70066B172;
+			remoteInfo = PinPayments;
+		};
+		B1F247B81FC0671500526161 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B17D81351FC06632000E9E3E /* PinPayments.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B193D6D41F0290D70066B172;
+			remoteInfo = PinPaymentsTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		B14593061F46D0B00033149C /* PinPayments.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PinPayments.framework; path = "../../../Library/Developer/Xcode/DerivedData/PinPayments-bmogbqzbywvghgbecurtsstgwpag/Build/Products/Debug-iphonesimulator/PinPayments.framework"; sourceTree = "<group>"; };
+		177D44E10EC2CB73279F83FB /* Pods-PinPaymentsStartProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPaymentsStartProject.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PinPaymentsStartProject/Pods-PinPaymentsStartProject.debug.xcconfig"; sourceTree = "<group>"; };
+		1D7FD3221FB16C6455B8B756 /* Pods_PinPayments_PinPaymentsStartProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPayments_PinPaymentsStartProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9EF07827D30E47D5681DB0 /* Pods_PinPaymentsStartProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPaymentsStartProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B1ECF1A26E2292DE6FBAEED /* Pods-PinPaymentsStartProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPaymentsStartProject.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PinPaymentsStartProject/Pods-PinPaymentsStartProject.release.xcconfig"; sourceTree = "<group>"; };
+		B17D81351FC06632000E9E3E /* PinPayments.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PinPayments.xcodeproj; path = "/Users/chriskruger/Development/pinpayments-ios-sdk/PinPayments.xcodeproj"; sourceTree = "<absolute>"; };
 		B18486291F46CBAB004185B1 /* PinPaymentsStartProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPaymentsStartProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B184862D1F46CBAB004185B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B184862F1F46CBAB004185B1 /* PinPaymentsStartProjectAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinPaymentsStartProjectAppDelegate.h; sourceTree = "<group>"; };
@@ -35,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B14593071F46D0B00033149C /* PinPayments.framework in Frameworks */,
+				36B2B1B0CF3CCE5EF38AF78D /* Pods_PinPaymentsStartProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +73,8 @@
 		B14593051F46D0970033149C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B14593061F46D0B00033149C /* PinPayments.framework */,
+				1F9EF07827D30E47D5681DB0 /* Pods_PinPaymentsStartProject.framework */,
+				1D7FD3221FB16C6455B8B756 /* Pods_PinPayments_PinPaymentsStartProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -53,9 +82,11 @@
 		B18486201F46CBAB004185B1 = {
 			isa = PBXGroup;
 			children = (
+				B17D81351FC06632000E9E3E /* PinPayments.xcodeproj */,
 				B14593051F46D0970033149C /* Frameworks */,
 				B184862B1F46CBAB004185B1 /* PinPaymentsStartProject */,
 				B184862A1F46CBAB004185B1 /* Products */,
+				D595E3C5F674893DCED2A5A0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +122,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B1F247B21FC0671400526161 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1F247B71FC0671500526161 /* PinPayments.framework */,
+				B1F247B91FC0671500526161 /* PinPaymentsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D595E3C5F674893DCED2A5A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				177D44E10EC2CB73279F83FB /* Pods-PinPaymentsStartProject.debug.xcconfig */,
+				2B1ECF1A26E2292DE6FBAEED /* Pods-PinPaymentsStartProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,13 +147,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B18486401F46CBAB004185B1 /* Build configuration list for PBXNativeTarget "PinPaymentsStartProject" */;
 			buildPhases = (
+				41ADB2ACABDF6DF66AEC260C /* [CP] Check Pods Manifest.lock */,
 				B18486251F46CBAB004185B1 /* Sources */,
 				B18486261F46CBAB004185B1 /* Frameworks */,
 				B18486271F46CBAB004185B1 /* Resources */,
+				2E52F073CEB303357BBC63A1 /* [CP] Embed Pods Frameworks */,
+				9733FC15545B811082B73FBC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B1A511191FC0741E00364671 /* PBXTargetDependency */,
 			);
 			name = PinPaymentsStartProject;
 			productName = PinPaymentsStartProject;
@@ -137,12 +190,35 @@
 			mainGroup = B18486201F46CBAB004185B1;
 			productRefGroup = B184862A1F46CBAB004185B1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B1F247B21FC0671400526161 /* Products */;
+					ProjectRef = B17D81351FC06632000E9E3E /* PinPayments.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B18486281F46CBAB004185B1 /* PinPaymentsStartProject */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B1F247B71FC0671500526161 /* PinPayments.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PinPayments.framework;
+			remoteRef = B1F247B61FC0671500526161 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1F247B91FC0671500526161 /* PinPaymentsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PinPaymentsTests.xctest;
+			remoteRef = B1F247B81FC0671500526161 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B18486271F46CBAB004185B1 /* Resources */ = {
@@ -157,6 +233,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E52F073CEB303357BBC63A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-PinPaymentsStartProject/Pods-PinPaymentsStartProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PinPaymentsStartProject/Pods-PinPaymentsStartProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41ADB2ACABDF6DF66AEC260C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinPaymentsStartProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9733FC15545B811082B73FBC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PinPaymentsStartProject/Pods-PinPaymentsStartProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B18486251F46CBAB004185B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -169,6 +299,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1A511191FC0741E00364671 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PinPayments;
+			targetProxy = B1A511181FC0741E00364671 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B18486351F46CBAB004185B1 /* Main.storyboard */ = {
@@ -284,10 +422,11 @@
 		};
 		B18486411F46CBAB004185B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 177D44E10EC2CB73279F83FB /* Pods-PinPaymentsStartProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PinPaymentsStartProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.PinPaymentsStartProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -295,10 +434,11 @@
 		};
 		B18486421F46CBAB004185B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B1ECF1A26E2292DE6FBAEED /* Pods-PinPaymentsStartProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PinPaymentsStartProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.PinPaymentsStartProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -2,13 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:PinPayments.xcodeproj">
+      location = "group:PinPayments.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:StarterProject"
-      name = "StarterProject">
-      <FileRef
-         location = "group:PinPaymentsStartProject.xcodeproj">
-      </FileRef>
-   </Group>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:StarterProject/PinPaymentsStartProject.xcodeproj">
+   </FileRef>
 </Workspace>

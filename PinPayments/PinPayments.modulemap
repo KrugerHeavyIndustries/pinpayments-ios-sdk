@@ -1,0 +1,6 @@
+framework module PinPayments {
+  umbrella header "PinPayments.h"
+
+  export *
+  module * { export * }
+}

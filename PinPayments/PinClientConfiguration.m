@@ -38,7 +38,6 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
     self = [super init];
     if (!self) return nil;
     
-    //_networkRetryAttempts = PFCommandRunningDefaultMaxAttemptsCount;
     _server = [_PinDefaultServerURLString copy];
     
     return self;
@@ -50,7 +49,7 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
     
     configurationBlock(self);
     
-    //PFConsistencyAssert(self.applicationId.length, @"`applicationId` should not be nil.");
+    NSAssert(!self.applicationId.length, @"`applicationId` should not be nil.");
     
     return self;
 }

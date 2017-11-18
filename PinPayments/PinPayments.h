@@ -23,47 +23,15 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import "PinPaymentsStartProjectAppDelegate.h"
+#import <UIKit/UIKit.h>
 
-@import PinPayments;
+//! Project version number for SampleFramework.
+FOUNDATION_EXPORT double PinPaymentsVersionNumber;
 
-@interface PinPaymentsStartProjectAppDelegate()
+//! Project version string for SampleFramework.
+FOUNDATION_EXPORT const unsigned char PinPaymentsVersionString[];
 
-@end
+#import <PinPayments/PinClient.h>
+#import <PinPayments/PinCustomer.h>
+#import <PinPayments/PinClientConfiguration.h>
 
-@implementation PinPaymentsStartProjectAppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [PinClient initializeWithConfiguration:[PinClientConfiguration configurationWithBlock:^(id<PinMutableClientConfiguration> _Nonnull configuration) {
-        //configuration.applicationId = @"your_application_id";
-        //configuration.publishableKey = @"pk_your_publishable_key";
-        //configuration.secretKey = @"your_secret_key";
-        configuration.server = @"https://test-api.pin.net.au/1";
-    }]];
-    
-    //[PinCharge fetchChargesInBackground];
-    
-    return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-}
-
-
-@end
