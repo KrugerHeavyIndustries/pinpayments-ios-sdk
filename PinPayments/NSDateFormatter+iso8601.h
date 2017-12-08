@@ -23,16 +23,8 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-//! Project version number for SampleFramework.
-FOUNDATION_EXPORT double PinPaymentsVersionNumber;
-
-//! Project version string for SampleFramework.
-FOUNDATION_EXPORT const unsigned char PinPaymentsVersionString[];
-
-#import <PinPayments/PinClient.h>
-#import <PinPayments/PinCustomer.h>
-#import <PinPayments/PinCard.h>
-#import <PinPayments/PinClientConfiguration.h>
-
+@interface NSDateFormatter (iso8601)
+- (nullable NSDate *)dateFromISO8601:(NSString *_Nonnull)string;
+@end

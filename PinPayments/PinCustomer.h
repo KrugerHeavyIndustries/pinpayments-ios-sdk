@@ -25,8 +25,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class PinCard;
+
 @interface PinCustomer : NSObject
 @property (nullable, nonatomic, strong) NSString *token;
 @property (nullable, nonatomic, strong) NSString *email;
 @property (nullable, nonatomic, strong) NSString *createdAt;
+@property (nullable, nonatomic, strong) PinCard *card;
 @end

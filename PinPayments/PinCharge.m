@@ -42,7 +42,6 @@
              @"status_message": propertyKey(statusMessage),
              @"error_message": propertyKey(errorMessage),
              @"card": propertyKey(card)};
-             
 }
 
 + (instancetype)chargeFromDictionary:(NSDictionary *)dictionary  {
@@ -57,7 +56,13 @@
 + (void)createChargeInBackground:(nonnull PinCharge*)charge block:(nullable PinChargeResultBlock)block {
     PinClientConfiguration* configuration = [PinClient currentConfiguration];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
-    [manager POST: @"charges" parameters:nil progress:nil success:nil failure:nil];
+    [manager POST: @"charges" parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+        block([PinCharge chargeFromDictionary:responseObject[@"response"]], nil);
+        NSLog(@"Charges: %@", charge);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        block(nil, error);
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 + (void)fetchChargesInBackground {

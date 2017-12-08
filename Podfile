@@ -14,5 +14,6 @@ target 'PinPayments' do
 
   target 'PinPaymentsTests' do
     inherit! :search_paths
+    pod 'OHHTTPStubs'
   end
 end

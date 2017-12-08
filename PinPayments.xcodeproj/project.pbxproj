@@ -12,19 +12,22 @@
 		B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */ = {isa = PBXBuildFile; fileRef = B15B96311F262A6F00A51302 /* PinCharge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B10E13E81F4AB7E10066F85B /* NSObject+Json.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E13E61F4AB7E10066F85B /* NSObject+Json.h */; };
 		B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E13E71F4AB7E10066F85B /* NSObject+Json.m */; };
+		B13608CF1FDA27F300BD6439 /* PinCard.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C78D9C1F3C1B2400BBA862 /* PinCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B13608D21FDA317800BD6439 /* NSDateFormatter+iso8601.h in Headers */ = {isa = PBXBuildFile; fileRef = B13608D01FDA317800BD6439 /* NSDateFormatter+iso8601.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B13608D31FDA317800BD6439 /* NSDateFormatter+iso8601.m in Sources */ = {isa = PBXBuildFile; fileRef = B13608D11FDA317800BD6439 /* NSDateFormatter+iso8601.m */; };
 		B15B96301F262A5100A51302 /* PinCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = B15B962F1F262A5100A51302 /* PinCharge.m */; };
 		B15B96341F262EB600A51302 /* PinCustomer.h in Headers */ = {isa = PBXBuildFile; fileRef = B15B96321F262EB600A51302 /* PinCustomer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B15B96351F262EB600A51302 /* PinCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = B15B96331F262EB600A51302 /* PinCustomer.m */; };
 		B16554DE1F150FA400642E09 /* PinClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B16554D91F150FA400642E09 /* PinClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16554DF1F150FA400642E09 /* PinClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554DA1F150FA400642E09 /* PinClient.m */; };
 		B16554E01F150FA400642E09 /* PinClientConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B16554DB1F150FA400642E09 /* PinClientConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B16554E51F150FC400642E09 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16554E41F150FC400642E09 /* Info.plist */; };
 		B16554E71F1511A600642E09 /* PinClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554E61F1511A600642E09 /* PinClientConfiguration.m */; };
-		B16554EC1F15192400642E09 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16554E91F15192400642E09 /* Info.plist */; };
 		B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */; };
 		B16554EE1F15192400642E09 /* PinClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EB1F15192400642E09 /* PinClientTests.m */; };
 		B193D6D51F0290D70066B172 /* PinPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B193D6CB1F0290D70066B172 /* PinPayments.framework */; };
 		B1A1C5D51FC06F4F00B9B427 /* PinPayments.h in Headers */ = {isa = PBXBuildFile; fileRef = B12BB2F61FC06A170051A5CA /* PinPayments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1BD69F01FD9369C007BC2C0 /* PinChargeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */; };
+		B1BD69F41FD944C4007BC2C0 /* charges-post.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BD69F21FD944BF007BC2C0 /* charges-post.json */; };
 		B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C78D9D1F3C1C3500BBA862 /* PinCard.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,8 @@
 		B10E13E61F4AB7E10066F85B /* NSObject+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Json.h"; path = "PinPayments/NSObject+Json.h"; sourceTree = "<group>"; };
 		B10E13E71F4AB7E10066F85B /* NSObject+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Json.m"; path = "PinPayments/NSObject+Json.m"; sourceTree = "<group>"; };
 		B12BB2F61FC06A170051A5CA /* PinPayments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinPayments.h; path = PinPayments/PinPayments.h; sourceTree = "<group>"; };
+		B13608D01FDA317800BD6439 /* NSDateFormatter+iso8601.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+iso8601.h"; path = "PinPayments/NSDateFormatter+iso8601.h"; sourceTree = "<group>"; };
+		B13608D11FDA317800BD6439 /* NSDateFormatter+iso8601.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+iso8601.m"; path = "PinPayments/NSDateFormatter+iso8601.m"; sourceTree = "<group>"; };
 		B15B962F1F262A5100A51302 /* PinCharge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCharge.m; path = PinPayments/PinCharge.m; sourceTree = "<group>"; };
 		B15B96311F262A6F00A51302 /* PinCharge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCharge.h; path = PinPayments/PinCharge.h; sourceTree = "<group>"; };
 		B15B96321F262EB600A51302 /* PinCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinCustomer.h; path = PinPayments/PinCustomer.h; sourceTree = "<group>"; };
@@ -61,6 +66,8 @@
 		B16554EB1F15192400642E09 /* PinClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClientTests.m; path = Tests/PinClientTests.m; sourceTree = "<group>"; };
 		B193D6CB1F0290D70066B172 /* PinPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PinPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B193D6D41F0290D70066B172 /* PinPaymentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinPaymentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinChargeTests.m; path = Tests/PinChargeTests.m; sourceTree = "<group>"; };
+		B1BD69F21FD944BF007BC2C0 /* charges-post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-post.json"; sourceTree = "<group>"; };
 		B1C78D9C1F3C1B2400BBA862 /* PinCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCard.h; path = PinPayments/PinCard.h; sourceTree = "<group>"; };
 		B1C78D9D1F3C1C3500BBA862 /* PinCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCard.m; path = PinPayments/PinCard.m; sourceTree = "<group>"; };
 		B1F247BD1FC069B600526161 /* PinPayments.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = PinPayments.modulemap; path = PinPayments/PinPayments.modulemap; sourceTree = "<group>"; };
@@ -104,6 +111,8 @@
 			children = (
 				B10E13E61F4AB7E10066F85B /* NSObject+Json.h */,
 				B10E13E71F4AB7E10066F85B /* NSObject+Json.m */,
+				B13608D01FDA317800BD6439 /* NSDateFormatter+iso8601.h */,
+				B13608D11FDA317800BD6439 /* NSDateFormatter+iso8601.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -140,9 +149,11 @@
 		B16554E81F15191700642E09 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				B1BD69F11FD93CAD007BC2C0 /* Fixtures */,
 				B16554E91F15192400642E09 /* Info.plist */,
 				B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */,
 				B16554EB1F15192400642E09 /* PinClientTests.m */,
+				B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -167,6 +178,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B1BD69F11FD93CAD007BC2C0 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				B1BD69F21FD944BF007BC2C0 /* charges-post.json */,
+			);
+			name = Fixtures;
+			path = Tests/Fixtures;
+			sourceTree = "<group>";
+		};
 		B1C78D9F1F3C29EF00BBA862 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +208,8 @@
 				B16554E01F150FA400642E09 /* PinClientConfiguration.h in Headers */,
 				B15B96341F262EB600A51302 /* PinCustomer.h in Headers */,
 				B16554DE1F150FA400642E09 /* PinClient.h in Headers */,
+				B13608D21FDA317800BD6439 /* NSDateFormatter+iso8601.h in Headers */,
+				B13608CF1FDA27F300BD6439 /* PinCard.h in Headers */,
 				B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,7 +300,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B16554E51F150FC400642E09 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B16554EC1F15192400642E09 /* Info.plist in Resources */,
+				B1BD69F41FD944C4007BC2C0 /* charges-post.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,10 +321,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PinPaymentsTests/Pods-PinPaymentsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +410,7 @@
 				B16554DF1F150FA400642E09 /* PinClient.m in Sources */,
 				B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */,
 				B15B96351F262EB600A51302 /* PinCustomer.m in Sources */,
+				B13608D31FDA317800BD6439 /* NSDateFormatter+iso8601.m in Sources */,
 				B15B96301F262A5100A51302 /* PinCharge.m in Sources */,
 				B16554E71F1511A600642E09 /* PinClientConfiguration.m in Sources */,
 				B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */,
@@ -397,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1BD69F01FD9369C007BC2C0 /* PinChargeTests.m in Sources */,
 				B16554EE1F15192400642E09 /* PinClientTests.m in Sources */,
 				B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */,
 			);

@@ -49,7 +49,7 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
     
     configurationBlock(self);
     
-    NSAssert(!self.applicationId.length, @"`applicationId` should not be nil.");
+    NSAssert(self.applicationId.length, @"`applicationId` should not be nil.");
     
     return self;
 }

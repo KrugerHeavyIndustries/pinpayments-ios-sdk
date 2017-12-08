@@ -23,16 +23,15 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import <UIKit/UIKit.h>
+#import "NSDateFormatter+iso8601.h"
 
-//! Project version number for SampleFramework.
-FOUNDATION_EXPORT double PinPaymentsVersionNumber;
+@implementation NSDateFormatter (iso8601)
 
-//! Project version string for SampleFramework.
-FOUNDATION_EXPORT const unsigned char PinPaymentsVersionString[];
+- (nullable NSDate *)dateFromISO8601:(NSString *_Nonnull)string {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    return [formatter dateFromString:string];
+}
 
-#import <PinPayments/PinClient.h>
-#import <PinPayments/PinCustomer.h>
-#import <PinPayments/PinCard.h>
-#import <PinPayments/PinClientConfiguration.h>
-
+@end

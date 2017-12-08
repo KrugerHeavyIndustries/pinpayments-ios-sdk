@@ -23,8 +23,10 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import "NSObject+Json.h"
 #import <objc/runtime.h>
+
+#import "NSObject+Json.h"
+#import "NSDateFormatter+iso8601.h"
 
 static NSString* stringFromClass(Class theClass) {
     static NSMapTable *map = nil;
@@ -116,8 +118,11 @@ static Class classFromString(NSString *string) {
             Class typeClass = classFromString(className);
             if (typeClass) {
                 NSLog(@"%@ --> %@", mappedKey, stringFromClass(typeClass));
-                if ([value isKindOfClass:NSString.class]) {
-
+                if ([typeClass isSubclassOfClass:NSDate.class]) {
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    value = [formatter dateFromISO8601:value];
+                } else if ([value isKindOfClass:NSString.class] || [value isKindOfClass:NSNumber.class]) {
+                    
                 } else if ([typeClass isSubclassOfClass:NSObject.class]) {
                     id instance = nil;
                     instance = [[typeClass alloc] init];
@@ -139,7 +144,7 @@ static Class classFromString(NSString *string) {
 }
 
 - (NSString*)jsonTypeAttributeForKey:(NSString*)key {
-
+ 
     static NSMutableDictionary *typeAttributes = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

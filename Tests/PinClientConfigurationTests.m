@@ -25,7 +25,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import "PinClientConfiguration.h"
+#import "PinPayments.h"
 
 @interface PinClientConfigurationTests : XCTestCase
 
@@ -35,16 +35,15 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
 - (void)testConfigurationWithBlock {
     PinClientConfiguration *configuration = [PinClientConfiguration configurationWithBlock:^(id<PinMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"applicationId";
         configuration.secretKey = @"foo";
         configuration.publishableKey = @"bar";
         configuration.server = @"http://localhost";
