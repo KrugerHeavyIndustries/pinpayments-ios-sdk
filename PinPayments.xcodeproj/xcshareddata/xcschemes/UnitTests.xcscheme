@@ -63,16 +63,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B18486281F46CBAB004185B1"
-            BuildableName = "PinPaymentsStartProject.app"
-            BlueprintName = "PinPaymentsStartProject"
-            ReferencedContainer = "container:StarterProject/PinPaymentsStartProject.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
