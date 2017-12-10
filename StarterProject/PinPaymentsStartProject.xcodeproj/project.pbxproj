@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		36B2B1B0CF3CCE5EF38AF78D /* Pods_PinPaymentsStartProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9EF07827D30E47D5681DB0 /* Pods_PinPaymentsStartProject.framework */; };
+		B118224F1FDD4C3F003C5CEC /* PinPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11822501FDD4C3F003C5CEC /* PinPayments.framework */; };
 		B184862E1F46CBAB004185B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B184862D1F46CBAB004185B1 /* main.m */; };
 		B18486311F46CBAB004185B1 /* PinPaymentsStartProjectAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B18486301F46CBAB004185B1 /* PinPaymentsStartProjectAppDelegate.m */; };
 		B18486341F46CBAB004185B1 /* PinPaymentsStartProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18486331F46CBAB004185B1 /* PinPaymentsStartProjectViewController.m */; };
@@ -21,6 +22,7 @@
 		1D7FD3221FB16C6455B8B756 /* Pods_PinPayments_PinPaymentsStartProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPayments_PinPaymentsStartProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9EF07827D30E47D5681DB0 /* Pods_PinPaymentsStartProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinPaymentsStartProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1ECF1A26E2292DE6FBAEED /* Pods-PinPaymentsStartProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPaymentsStartProject.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PinPaymentsStartProject/Pods-PinPaymentsStartProject.release.xcconfig"; sourceTree = "<group>"; };
+		B11822501FDD4C3F003C5CEC /* PinPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PinPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18486291F46CBAB004185B1 /* PinPaymentsStartProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinPaymentsStartProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B184862D1F46CBAB004185B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B184862F1F46CBAB004185B1 /* PinPaymentsStartProjectAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinPaymentsStartProjectAppDelegate.h; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B118224F1FDD4C3F003C5CEC /* PinPayments.framework in Frameworks */,
 				36B2B1B0CF3CCE5EF38AF78D /* Pods_PinPaymentsStartProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +51,7 @@
 		B14593051F46D0970033149C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B11822501FDD4C3F003C5CEC /* PinPayments.framework */,
 				1F9EF07827D30E47D5681DB0 /* Pods_PinPaymentsStartProject.framework */,
 				1D7FD3221FB16C6455B8B756 /* Pods_PinPayments_PinPaymentsStartProject.framework */,
 			);
