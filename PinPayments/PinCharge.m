@@ -28,6 +28,77 @@
 #import "PinClient.h"
 #import "NSObject+Json.h"
 
+@implementation PinMutableCharge
+- (instancetype)init {
+    if (self = [super init]) {
+        _email = nil;
+        _chargeDescription = nil;
+        _amount = 0;
+        _ipAddress = nil;
+        _created = nil;
+        _currency = nil;
+        _capture = nil;
+        _success = NO;
+        _statusMessage = nil;
+        _errorMessage = nil;
+        _card = nil;
+        _authorizationExpired = nil;
+        _token = nil;
+        _cardToken = nil;
+        _customerToken = nil;
+        _metadata = nil;
+    }
+    return self;
+}
+@end
+
+NSString * const PinChargeQuerySortField_toString[] = {
+    [PinChargeQuerySortFieldCreatedAt] = @"created_at",
+    [PinChargeQuerySortFieldAmount] = @"amount",
+    [PinChargeQuerySortFieldDescription] = @"description"
+};
+
+@implementation PinChargeQuery
+
++ (nullable NSDateFormatter*)dateFormatter {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    dateFormatter.dateFormat = @"yyyy/MM/dd";
+    return dateFormatter;
+}
+
+- (nullable instancetype)init {
+    if ([super init]) {
+        _query = nil;
+        _startDate = nil;
+        _endDate = nil;
+        _sortField = PinChargeQuerySortFieldCreatedAt;
+        _direction = PinChargeQuerySortDirectionAsc;
+    }
+    return self;
+}
+
+- (nonnull NSDictionary*)queryParameters {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    if (_query) {
+        dictionary[@"query"] = _query;
+    }
+    if (_startDate) {
+        dictionary[@"start_date"] = [[PinChargeQuery dateFormatter] stringFromDate:_startDate];
+    }
+    if (_endDate) {
+        dictionary[@"end_date"] = [[PinChargeQuery dateFormatter] stringFromDate:_endDate];
+    }
+    if (_sortField) {
+        dictionary[@"sort"] = PinChargeQuerySortField_toString[_sortField];
+    }
+    if (_direction) {
+        dictionary[@"direction"] = [NSNumber numberWithInteger:_direction];
+    }
+    return dictionary;
+}
+@end
+
 @implementation PinCharge
 
 + (NSDictionary*)jsonMapping {
@@ -49,50 +120,104 @@
         return nil;
     }
     PinCharge *charge = [[PinCharge alloc] init];
-    [charge jsonSetValuesForKeysWithDictionary: dictionary];
+    [charge jsonSetValuesForKeysWithDictionary:dictionary];
     return charge;
 }
 
-+ (void)createChargeInBackground:(nonnull PinCharge*)charge block:(nullable PinChargeResultBlock)block {
++ (void)createChargeInBackground:(nonnull PinCharge*)charge block:(nonnull PinChargeResultBlock)block {
     PinClientConfiguration* configuration = [PinClient currentConfiguration];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
-    [manager POST: @"charges" parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSDictionary* parameters = [charge encodeIntoDictionary];
+    [manager POST: @"charges" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
         block([PinCharge chargeFromDictionary:responseObject[@"response"]], nil);
-        NSLog(@"Charges: %@", charge);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         block(nil, error);
-        NSLog(@"Error: %@", error);
     }];
 }
 
-+ (void)fetchChargesInBackground {
-    [self fetchChargesInBackground: nil];
++ (void)fetchChargesInBackground:(nonnull PinChargeArrayResultBlock)block {
+    [self fetchChargesInBackground:@1 block:block];
 }
 
-+ (void)fetchChargesInBackground:(nullable NSNumber*)page {
++ (void)fetchChargesInBackground:(nonnull NSNumber*)page block:(nonnull PinChargeArrayResultBlock)block {
     PinClientConfiguration* configuration = [PinClient currentConfiguration];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
-    [manager GET: @"charges" parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+    [manager GET: @"charges" parameters:@{ @"page": page } progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
         NSMutableArray *charges = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
         
         for (NSDictionary *c in response) {
             [charges addObject:[PinCharge chargeFromDictionary:c]];
         }
-        
-        NSLog(@"Charges: %@", charges);
+        block(charges, nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        block(nil, error);
     }];
 }
 
-- (void)fetchChargesMatchingCriteriaInBackground {
++ (void)fetchChargesMatchingCriteriaInBackground:(nonnull PinChargeQuery*)query block:(nonnull PinChargeArrayResultBlock)block{
+    PinClientConfiguration* configuration = [PinClient currentConfiguration];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
+    [manager GET: @"charges/search" parameters:[query queryParameters] progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+        NSMutableArray *charges = @[].mutableCopy;
+        NSArray *response = responseObject[@"response"];
+        
+        for (NSDictionary *c in response) {
+            [charges addObject:[PinCharge chargeFromDictionary:c]];
+        }
+        block(charges, nil);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        block(nil, error);
+    }];
 }
 
-- (void)fetchChargeDetailsInBackground:(NSString*)chargeToken {
++ (void)fetchChargeDetailsInBackground:(nonnull NSString*)chargeToken block:(nonnull PinChargeResultBlock)block {
+    PinClientConfiguration* configuration = [PinClient currentConfiguration];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
+    [manager GET:[NSString stringWithFormat:@"%@/%@", @"charges", chargeToken] parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+        PinCharge *charge = [PinCharge chargeFromDictionary: responseObject[@"response"]];
+        block(charge, nil);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+-(instancetype)initWithBlock:(nonnull PinChargeBuilderBlock)block {
+    PinMutableCharge *builder = [[PinMutableCharge alloc] init];
+    block(builder);
+    if (self = [super init]) {
+        _email = builder.email;
+        _chargeDescription = builder.chargeDescription;
+        _amount = builder.amount;
+        _ipAddress = builder.ipAddress;
+        _created = builder.created;
+        _currency = builder.currency;
+        _capture = builder.capture;
+        _success = builder.success;
+        _statusMessage = builder.statusMessage;
+        _errorMessage = builder.errorMessage;
+        _card = builder.card;
+        _authorizationExpired = builder.authorizationExpired;
+        _token = builder.token;
+        _cardToken = builder.cardToken;
+        _customerToken = builder.customerToken;
+        _metadata = builder.metadata;
+    }
+    return self;
+}
+
+-(nonnull NSDictionary*)encodeIntoDictionary {
+   return [self dictionaryWithValuesForKeys:[[PinCharge jsonMapping] allValues]];
 }
 
 - (NSString *)description {

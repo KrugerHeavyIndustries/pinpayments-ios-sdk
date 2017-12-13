@@ -26,6 +26,9 @@
 		B16554EE1F15192400642E09 /* PinClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EB1F15192400642E09 /* PinClientTests.m */; };
 		B193D6D51F0290D70066B172 /* PinPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B193D6CB1F0290D70066B172 /* PinPayments.framework */; };
 		B1A1C5D51FC06F4F00B9B427 /* PinPayments.h in Headers */ = {isa = PBXBuildFile; fileRef = B12BB2F61FC06A170051A5CA /* PinPayments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B1AD5F1FDF9CA1006DBFC3 /* charges-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1B1AD5D1FDF9C76006DBFC3 /* charges-get.json */; };
+		B1B1AD621FDFA49E006DBFC3 /* charges-token-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1B1AD601FDFA49B006DBFC3 /* charges-token-get.json */; };
+		B1B1AD651FDFA57A006DBFC3 /* charges-search-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1B1AD631FDFA575006DBFC3 /* charges-search-get.json */; };
 		B1BD69F01FD9369C007BC2C0 /* PinChargeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */; };
 		B1BD69F41FD944C4007BC2C0 /* charges-post.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BD69F21FD944BF007BC2C0 /* charges-post.json */; };
 		B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C78D9D1F3C1C3500BBA862 /* PinCard.m */; };
@@ -66,6 +69,9 @@
 		B16554EB1F15192400642E09 /* PinClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClientTests.m; path = Tests/PinClientTests.m; sourceTree = "<group>"; };
 		B193D6CB1F0290D70066B172 /* PinPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PinPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B193D6D41F0290D70066B172 /* PinPaymentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinPaymentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1B1AD5D1FDF9C76006DBFC3 /* charges-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-get.json"; sourceTree = "<group>"; };
+		B1B1AD601FDFA49B006DBFC3 /* charges-token-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-token-get.json"; sourceTree = "<group>"; };
+		B1B1AD631FDFA575006DBFC3 /* charges-search-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-search-get.json"; sourceTree = "<group>"; };
 		B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinChargeTests.m; path = Tests/PinChargeTests.m; sourceTree = "<group>"; };
 		B1BD69F21FD944BF007BC2C0 /* charges-post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-post.json"; sourceTree = "<group>"; };
 		B1C78D9C1F3C1B2400BBA862 /* PinCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCard.h; path = PinPayments/PinCard.h; sourceTree = "<group>"; };
@@ -181,6 +187,9 @@
 		B1BD69F11FD93CAD007BC2C0 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				B1B1AD631FDFA575006DBFC3 /* charges-search-get.json */,
+				B1B1AD601FDFA49B006DBFC3 /* charges-token-get.json */,
+				B1B1AD5D1FDF9C76006DBFC3 /* charges-get.json */,
 				B1BD69F21FD944BF007BC2C0 /* charges-post.json */,
 			);
 			name = Fixtures;
@@ -307,6 +316,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B1AD651FDFA57A006DBFC3 /* charges-search-get.json in Resources */,
+				B1B1AD621FDFA49E006DBFC3 /* charges-token-get.json in Resources */,
+				B1B1AD5F1FDF9CA1006DBFC3 /* charges-get.json in Resources */,
 				B1BD69F41FD944C4007BC2C0 /* charges-post.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

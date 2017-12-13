@@ -26,11 +26,9 @@
 #import <Foundation/Foundation.h>
 
 @class PinCard;
+@class PinChargeQuery;
 
-@interface PinCharge : NSObject
-
-typedef void(^PinChargeResultBlock)(PinCharge * _Nullable charge, NSError * _Nullable error);
-
+@interface PinMutableCharge : NSObject
 @property (nullable, nonatomic, strong) NSString *email;
 @property (nullable, nonatomic, strong) NSString *chargeDescription;
 @property (nonatomic, assign) NSInteger amount;
@@ -47,13 +45,68 @@ typedef void(^PinChargeResultBlock)(PinCharge * _Nullable charge, NSError * _Nul
 @property (nullable, nonatomic, strong) NSString *cardToken;
 @property (nullable, nonatomic, strong) NSString *customerToken;
 @property (nullable, nonatomic, strong) NSDictionary *metadata;
+@end
 
-+(void)createChargeInBackground:(nonnull PinCharge*)charge block:(nullable PinChargeResultBlock)block;
+@interface PinCharge : NSObject
 
-+(void)fetchChargesInBackground;
+typedef void (^PinChargeBuilderBlock)(PinMutableCharge * _Nonnull builder);
+typedef void(^PinChargeResultBlock)(PinCharge * _Nullable charge, NSError * _Nullable error);
+typedef void (^PinChargeArrayResultBlock)(NSArray *_Nullable charges, NSError *_Nullable error);
 
-+(void)fetchChargesInBackground:(nullable NSNumber*)page;
+@property (readonly, nullable, nonatomic, strong) NSString *email;
+@property (readonly, nullable, nonatomic, strong) NSString *chargeDescription;
+@property (readonly, nonatomic, assign) NSInteger amount;
+@property (readonly, nullable, nonatomic, strong) NSString *ipAddress;
+@property (readonly, nullable, nonatomic, strong) NSDate *created;
+@property (readonly, nullable, nonatomic, strong) NSString *currency;
+@property (readonly, nonatomic, assign) BOOL capture;
+@property (readonly, nonatomic, assign) BOOL success;
+@property (readonly, nullable, nonatomic, strong) NSString *statusMessage;
+@property (readonly, nullable, nonatomic, strong) NSString *errorMessage;
+@property (readonly, nullable, nonatomic, strong) PinCard *card;
+@property (readonly, nonatomic, assign) BOOL authorizationExpired;
+@property (readonly, nullable, nonatomic, strong) NSString *token;
+@property (readonly, nullable, nonatomic, strong) NSString *cardToken;
+@property (readonly, nullable, nonatomic, strong) NSString *customerToken;
+@property (readonly, nullable, nonatomic, strong) NSDictionary *metadata;
 
++(void)createChargeInBackground:(nonnull PinCharge*)charge block:(nonnull PinChargeResultBlock)block;
+
++(void)fetchChargesInBackground:(nonnull PinChargeArrayResultBlock)block;
+
++(void)fetchChargesInBackground:(nonnull NSNumber*)page block:(nonnull PinChargeArrayResultBlock)block;
+
++(void)fetchChargesMatchingCriteriaInBackground:(nonnull PinChargeQuery*)query block:(nonnull PinChargeArrayResultBlock)block;
+
++(void)fetchChargeDetailsInBackground:(nonnull NSString*)chargeToken block:(nonnull PinChargeResultBlock)block;
+
+-(nonnull instancetype)initWithBlock:(nonnull PinChargeBuilderBlock)block;
+
+-(nonnull NSDictionary*)encodeIntoDictionary;
+
+@end
+
+typedef enum : NSInteger {
+    PinChargeQuerySortDirectionAsc = 1,
+    PinChargeQuerySortDirectionDesc = -1,
+} PinChargeQuerySortDirection;
+
+typedef enum : NSUInteger {
+    PinChargeQuerySortFieldCreatedAt,
+    PinChargeQuerySortFieldDescription,
+    PinChargeQuerySortFieldAmount
+} PinChargeQuerySortField;
+
+@interface PinChargeQuery : NSObject
+@property (nullable, nonatomic, strong) NSString *query;
+@property (nullable, nonatomic, strong) NSDate *startDate;
+@property (nullable, nonatomic, strong) NSDate *endDate;
+@property (nonatomic, assign) PinChargeQuerySortField sortField;
+@property (nonatomic, assign) PinChargeQuerySortDirection direction;
+
+- (nullable instancetype)init;
+
+- (nonnull NSDictionary*)queryParameters;
 @end
 
 
