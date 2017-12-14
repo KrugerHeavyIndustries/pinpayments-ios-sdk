@@ -86,16 +86,16 @@ typedef void (^PinChargeArrayResultBlock)(NSArray *_Nullable charges, NSError *_
 
 @end
 
-typedef enum : NSInteger {
+typedef NS_ENUM(NSInteger, PinChargeQuerySortDirection) {
     PinChargeQuerySortDirectionAsc = 1,
-    PinChargeQuerySortDirectionDesc = -1,
-} PinChargeQuerySortDirection;
+    PinChargeQuerySortDirectionDesc = -1
+} ;
 
-typedef enum : NSUInteger {
-    PinChargeQuerySortFieldCreatedAt,
-    PinChargeQuerySortFieldDescription,
-    PinChargeQuerySortFieldAmount
-} PinChargeQuerySortField;
+typedef NS_ENUM(NSInteger, PinChargeQuerySortField) {
+    PinChargeQuerySortFieldCreatedAt = 1,
+    PinChargeQuerySortFieldDescription = 2,
+    PinChargeQuerySortFieldAmount = 3
+} ;
 
 @interface PinChargeQuery : NSObject
 @property (nullable, nonatomic, strong) NSString *query;

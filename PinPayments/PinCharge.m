@@ -72,8 +72,8 @@ NSString * const PinChargeQuerySortField_toString[] = {
         _query = nil;
         _startDate = nil;
         _endDate = nil;
-        _sortField = PinChargeQuerySortFieldCreatedAt;
-        _direction = PinChargeQuerySortDirectionAsc;
+        _sortField = 0;
+        _direction = 0;
     }
     return self;
 }
@@ -89,10 +89,10 @@ NSString * const PinChargeQuerySortField_toString[] = {
     if (_endDate) {
         dictionary[@"end_date"] = [[PinChargeQuery dateFormatter] stringFromDate:_endDate];
     }
-    if (_sortField) {
+    if (_sortField != 0) {
         dictionary[@"sort"] = PinChargeQuerySortField_toString[_sortField];
     }
-    if (_direction) {
+    if (_direction != 0) {
         dictionary[@"direction"] = [NSNumber numberWithInteger:_direction];
     }
     return dictionary;

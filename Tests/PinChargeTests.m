@@ -31,7 +31,6 @@
 #import "PinPayments/NSDateFormatter+iso8601.h"
 
 @interface PinChargeTests : XCTestCase
-
 @end
 
 @implementation PinChargeTests
@@ -92,6 +91,38 @@
     [super tearDown];
 }
 
+- (void)testCharge:(PinCharge*)charge {
+    XCTAssertEqualObjects(charge.email, @"roland@pinpayments.com");
+    XCTAssertEqualObjects(charge.chargeDescription, @"test charge");
+    XCTAssertEqual(charge.amount, 400);
+    XCTAssertEqualObjects(charge.ipAddress, @"203.192.1.172");
+    XCTAssertEqualObjects(charge.created, [[[NSDateFormatter alloc] init] dateFromISO8601:@"2012-06-20T03:10:49Z"]);
+    XCTAssertEqualObjects(charge.currency, @"USD");
+    XCTAssertTrue(charge.success);
+    XCTAssertEqualObjects(charge.statusMessage, @"Success");
+    XCTAssertTrue(charge.errorMessage.length == 0);
+    
+    XCTAssertEqualObjects(charge.card.token, @"card_pIQJKMs93GsCc9vLSLevbw");
+    XCTAssertEqualObjects(charge.card.scheme, @"master");
+    XCTAssertEqualObjects(charge.card.displayNumber, @"XXXX-XXXX-XXXX-0000");
+    XCTAssertEqualObjects(charge.card.expiryMonth, @5);
+    XCTAssertEqualObjects(charge.card.expiryYear, @2018);
+    XCTAssertEqualObjects(charge.card.name, @"Roland Robot");
+    XCTAssertEqualObjects(charge.card.addressLine1, @"42 Sevenoaks St");
+    XCTAssertTrue(charge.card.addressLine2.length == 0);
+    XCTAssertEqualObjects(charge.card.addressCity, @"Lathlain");
+    XCTAssertEqualObjects(charge.card.addressPostcode, @"6454");
+    XCTAssertEqualObjects(charge.card.addressState, @"WA");
+    XCTAssertEqualObjects(charge.card.addressCountry, @"Australia");
+    XCTAssertTrue(charge.card.customerToken.length == 0);
+    XCTAssertNil(charge.card.primary);
+    
+    XCTAssertFalse(charge.authorizationExpired);
+    XCTAssertNil(charge.cardToken);
+    XCTAssertNil(charge.customerToken);
+    XCTAssertEqualObjects(charge.token, @"ch_lfUYEBK14zotCTykezJkfg");
+}
+
 - (void)testCreateChargeInBackground {
 
     XCTestExpectation *expectation = [self expectationWithDescription:@"createChargeInBackground"];
@@ -99,36 +130,7 @@
     PinCharge *charge = [[PinCharge alloc] init];
 
     [PinCharge createChargeInBackground:charge block:^(PinCharge * _Nullable charge, NSError * _Nullable error) {
-        XCTAssertEqualObjects(charge.email, @"roland@pinpayments.com");
-        XCTAssertEqualObjects(charge.chargeDescription, @"test charge");
-        XCTAssertEqual(charge.amount, 400);
-        XCTAssertEqualObjects(charge.ipAddress, @"203.192.1.172");
-        XCTAssertEqualObjects(charge.created, [[[NSDateFormatter alloc] init] dateFromISO8601:@"2012-06-20T03:10:49Z"]);
-        XCTAssertEqualObjects(charge.currency, @"USD");
-        XCTAssertTrue(charge.success);
-        XCTAssertEqualObjects(charge.statusMessage, @"Success");
-        XCTAssertTrue(charge.errorMessage.length == 0);
-
-        XCTAssertEqualObjects(charge.card.token, @"card_pIQJKMs93GsCc9vLSLevbw");
-        XCTAssertEqualObjects(charge.card.scheme, @"master");
-        XCTAssertEqualObjects(charge.card.displayNumber, @"XXXX-XXXX-XXXX-0000");
-        XCTAssertEqualObjects(charge.card.expiryMonth, @5);
-        XCTAssertEqualObjects(charge.card.expiryYear, @2018);
-        XCTAssertEqualObjects(charge.card.name, @"Roland Robot");
-        XCTAssertEqualObjects(charge.card.addressLine1, @"42 Sevenoaks St");
-        XCTAssertTrue(charge.card.addressLine2.length == 0);
-        XCTAssertEqualObjects(charge.card.addressCity, @"Lathlain");
-        XCTAssertEqualObjects(charge.card.addressPostcode, @"6454");
-        XCTAssertEqualObjects(charge.card.addressState, @"WA");
-        XCTAssertEqualObjects(charge.card.addressCountry, @"Australia");
-        XCTAssertTrue(charge.card.customerToken.length == 0);
-        XCTAssertNil(charge.card.primary);
-
-        XCTAssertFalse(charge.authorizationExpired);
-        XCTAssertNil(charge.cardToken);
-        XCTAssertNil(charge.customerToken);
-        XCTAssertEqualObjects(charge.token, @"ch_lfUYEBK14zotCTykezJkfg");
-
+        [self testCharge:charge];
         [expectation fulfill];
     }];
 
@@ -138,41 +140,11 @@
 
 - (void)testFetchChargesInBackground {
     XCTestExpectation *expectation = [self expectationWithDescription:@"fetchChargesInBackground"];
-
     [PinCharge fetchChargesInBackground:^(NSArray * _Nullable charges, NSError * _Nullable error) {
         XCTAssertTrue(charges.count > 0);
         PinCharge* charge = [charges firstObject];
-
-        XCTAssertEqualObjects(charge.email, @"roland@pinpayments.com");
-        XCTAssertEqualObjects(charge.chargeDescription, @"test charge");
-        XCTAssertEqual(charge.amount, 400);
-        XCTAssertEqualObjects(charge.ipAddress, @"203.192.1.172");
-        XCTAssertEqualObjects(charge.created, [[[NSDateFormatter alloc] init] dateFromISO8601:@"2012-06-20T03:10:49Z"]);
-        XCTAssertEqualObjects(charge.currency, @"USD");
-        XCTAssertTrue(charge.success);
-        XCTAssertEqualObjects(charge.statusMessage, @"Success");
-        XCTAssertTrue(charge.errorMessage.length == 0);
-
-        XCTAssertEqualObjects(charge.card.token, @"card_pIQJKMs93GsCc9vLSLevbw");
-        XCTAssertEqualObjects(charge.card.scheme, @"master");
-        XCTAssertEqualObjects(charge.card.displayNumber, @"XXXX-XXXX-XXXX-0000");
-        XCTAssertEqualObjects(charge.card.expiryMonth, @5);
-        XCTAssertEqualObjects(charge.card.expiryYear, @2018);
-        XCTAssertEqualObjects(charge.card.name, @"Roland Robot");
-        XCTAssertEqualObjects(charge.card.addressLine1, @"42 Sevenoaks St");
-        XCTAssertTrue(charge.card.addressLine2.length == 0);
-        XCTAssertEqualObjects(charge.card.addressCity, @"Lathlain");
-        XCTAssertEqualObjects(charge.card.addressPostcode, @"6454");
-        XCTAssertEqualObjects(charge.card.addressState, @"WA");
-        XCTAssertEqualObjects(charge.card.addressCountry, @"Australia");
-        XCTAssertTrue(charge.card.customerToken.length == 0);
-        XCTAssertNil(charge.card.primary);
-
-        XCTAssertFalse(charge.authorizationExpired);
-        XCTAssertNil(charge.cardToken);
-        XCTAssertNil(charge.customerToken);
-        XCTAssertEqualObjects(charge.token, @"ch_lfUYEBK14zotCTykezJkfg");
-
+        [self testCharge:charge];
+        
         [expectation fulfill];
     }];
 
@@ -186,36 +158,7 @@
     [PinCharge fetchChargesMatchingCriteriaInBackground:query block:^(NSArray * _Nullable charges, NSError * _Nullable error) {
         XCTAssertTrue(charges.count > 0);
         PinCharge* charge = [charges firstObject];
-
-        XCTAssertEqualObjects(charge.email, @"roland@pinpayments.com");
-        XCTAssertEqualObjects(charge.chargeDescription, @"test charge");
-        XCTAssertEqual(charge.amount, 400);
-        XCTAssertEqualObjects(charge.ipAddress, @"203.192.1.172");
-        XCTAssertEqualObjects(charge.created, [[[NSDateFormatter alloc] init] dateFromISO8601:@"2012-06-20T03:10:49Z"]);
-        XCTAssertEqualObjects(charge.currency, @"USD");
-        XCTAssertTrue(charge.success);
-        XCTAssertEqualObjects(charge.statusMessage, @"Success");
-        XCTAssertTrue(charge.errorMessage.length == 0);
-
-        XCTAssertEqualObjects(charge.card.token, @"card_pIQJKMs93GsCc9vLSLevbw");
-        XCTAssertEqualObjects(charge.card.scheme, @"master");
-        XCTAssertEqualObjects(charge.card.displayNumber, @"XXXX-XXXX-XXXX-0000");
-        XCTAssertEqualObjects(charge.card.expiryMonth, @5);
-        XCTAssertEqualObjects(charge.card.expiryYear, @2018);
-        XCTAssertEqualObjects(charge.card.name, @"Roland Robot");
-        XCTAssertEqualObjects(charge.card.addressLine1, @"42 Sevenoaks St");
-        XCTAssertTrue(charge.card.addressLine2.length == 0);
-        XCTAssertEqualObjects(charge.card.addressCity, @"Lathlain");
-        XCTAssertEqualObjects(charge.card.addressPostcode, @"6454");
-        XCTAssertEqualObjects(charge.card.addressState, @"WA");
-        XCTAssertEqualObjects(charge.card.addressCountry, @"Australia");
-        XCTAssertTrue(charge.card.customerToken.length == 0);
-        XCTAssertNil(charge.card.primary);
-
-        XCTAssertFalse(charge.authorizationExpired);
-        XCTAssertNil(charge.cardToken);
-        XCTAssertNil(charge.customerToken);
-        XCTAssertEqualObjects(charge.token, @"ch_lfUYEBK14zotCTykezJkfg");
+        [self testCharge:charge];
 
         [expectation fulfill];
     }];
@@ -227,36 +170,8 @@
 -(void)testFetchChargeDetailsInBackground {
     XCTestExpectation *expectation = [self expectationWithDescription:@"fetchChargeDetailsInBackground"];
     [PinCharge fetchChargeDetailsInBackground:@"ch_lfUYEBK14zotCTykezJkfg" block:^(PinCharge * _Nullable charge, NSError * _Nullable error) {
-        XCTAssertEqualObjects(charge.email, @"roland@pinpayments.com");
-        XCTAssertEqualObjects(charge.chargeDescription, @"test charge");
-        XCTAssertEqual(charge.amount, 400);
-        XCTAssertEqualObjects(charge.ipAddress, @"203.192.1.172");
-        XCTAssertEqualObjects(charge.created, [[[NSDateFormatter alloc] init] dateFromISO8601:@"2012-06-20T03:10:49Z"]);
-        XCTAssertEqualObjects(charge.currency, @"USD");
-        XCTAssertTrue(charge.success);
-        XCTAssertEqualObjects(charge.statusMessage, @"Success");
-        XCTAssertTrue(charge.errorMessage.length == 0);
-
-        XCTAssertEqualObjects(charge.card.token, @"card_pIQJKMs93GsCc9vLSLevbw");
-        XCTAssertEqualObjects(charge.card.scheme, @"master");
-        XCTAssertEqualObjects(charge.card.displayNumber, @"XXXX-XXXX-XXXX-0000");
-        XCTAssertEqualObjects(charge.card.expiryMonth, @5);
-        XCTAssertEqualObjects(charge.card.expiryYear, @2018);
-        XCTAssertEqualObjects(charge.card.name, @"Roland Robot");
-        XCTAssertEqualObjects(charge.card.addressLine1, @"42 Sevenoaks St");
-        XCTAssertTrue(charge.card.addressLine2.length == 0);
-        XCTAssertEqualObjects(charge.card.addressCity, @"Lathlain");
-        XCTAssertEqualObjects(charge.card.addressPostcode, @"6454");
-        XCTAssertEqualObjects(charge.card.addressState, @"WA");
-        XCTAssertEqualObjects(charge.card.addressCountry, @"Australia");
-        XCTAssertTrue(charge.card.customerToken.length == 0);
-        XCTAssertNil(charge.card.primary);
-
-        XCTAssertFalse(charge.authorizationExpired);
-        XCTAssertNil(charge.cardToken);
-        XCTAssertNil(charge.customerToken);
-        XCTAssertEqualObjects(charge.token, @"ch_lfUYEBK14zotCTykezJkfg");
-
+        [self testCharge:charge];
+        
         [expectation fulfill];
     }];
     
@@ -264,4 +179,75 @@
     }];
 }
 
+-(void)testPinChargeQueryQuery {
+    PinChargeQuery *pinChargeQuery = [[PinChargeQuery alloc] init];
+    pinChargeQuery.query = @"test charge";
+    
+    NSDictionary* parameters = [pinChargeQuery queryParameters];
+    
+    XCTAssertEqualObjects(parameters[@"query"], @"test charge");
+    XCTAssertNil(parameters[@"start_date"]);
+    XCTAssertNil(parameters[@"end_data"]);
+    XCTAssertNil(parameters[@"sort"]);
+    XCTAssertNil(parameters[@"direction"]);
+}
+
+-(void)testPinChargeQueryDates {
+    PinChargeQuery *pinChargeQuery = [[PinChargeQuery alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    pinChargeQuery.startDate = [formatter dateFromString:@"2012-12-12"];
+    pinChargeQuery.endDate = [formatter dateFromString:@"2013-06-01"];
+    
+    NSDictionary* parameters = [pinChargeQuery queryParameters];
+    
+    XCTAssertNil(parameters[@"query"]);
+    XCTAssertEqualObjects(parameters[@"start_date"], @"2012/12/12");
+    XCTAssertEqualObjects(parameters[@"end_date"], @"2013/06/01");
+    XCTAssertNil(parameters[@"sort"]);
+    XCTAssertNil(parameters[@"direction"]);
+}
+
+-(void)testPinChargeQueryDirection {
+    PinChargeQuery *pinChargeQuery = [[PinChargeQuery alloc] init];
+    pinChargeQuery.direction = PinChargeQuerySortDirectionAsc;
+    
+    NSDictionary* parameters = [pinChargeQuery queryParameters];
+    
+    XCTAssertNil(parameters[@"query"]);
+    XCTAssertNil(parameters[@"start_date"]);
+    XCTAssertNil(parameters[@"end_date"]);
+    XCTAssertNil(parameters[@"sort"]);
+    XCTAssertEqualObjects(parameters[@"direction"], [NSNumber numberWithInt:PinChargeQuerySortDirectionAsc]);
+    
+    pinChargeQuery.direction = PinChargeQuerySortDirectionDesc;
+    parameters = [pinChargeQuery queryParameters];
+    
+    XCTAssertEqualObjects(parameters[@"direction"], [NSNumber numberWithInt:PinChargeQuerySortDirectionDesc]);
+}
+
+-(void)testPinChargeQuerySortField {
+    PinChargeQuery *pinChargeQuery = [[PinChargeQuery alloc] init];
+    pinChargeQuery.sortField = PinChargeQuerySortFieldCreatedAt;
+    
+    NSDictionary* parameters = [pinChargeQuery queryParameters];
+    
+    XCTAssertNil(parameters[@"query"]);
+    XCTAssertNil(parameters[@"start_date"]);
+    XCTAssertNil(parameters[@"end_date"]);
+    XCTAssertEqualObjects(parameters[@"sort"], @"created_at");
+    XCTAssertNil(parameters[@"direction"]);
+    
+    pinChargeQuery.sortField = PinChargeQuerySortFieldAmount;
+    parameters = [pinChargeQuery queryParameters];
+    
+    XCTAssertEqualObjects(parameters[@"sort"], @"amount");
+    
+    pinChargeQuery.sortField = PinChargeQuerySortFieldDescription;
+    parameters = [pinChargeQuery queryParameters];
+    
+    XCTAssertEqualObjects(parameters[@"sort"], @"description");
+}
 @end
+
+
