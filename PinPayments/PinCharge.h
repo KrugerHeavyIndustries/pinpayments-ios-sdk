@@ -50,7 +50,7 @@
 @interface PinCharge : NSObject
 
 typedef void (^PinChargeBuilderBlock)(PinMutableCharge * _Nonnull builder);
-typedef void(^PinChargeResultBlock)(PinCharge * _Nullable charge, NSError * _Nullable error);
+typedef void (^PinChargeResultBlock)(PinCharge * _Nullable charge, NSError * _Nullable error);
 typedef void (^PinChargeArrayResultBlock)(NSArray<PinCharge*> *_Nullable charges, NSError *_Nullable error);
 
 @property (readonly, nullable, nonatomic, strong) NSString *email;

@@ -23,8 +23,7 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import <PinPayments/PinClient.h>
-#import <PinPayments/PinCard.h>
+#import <PinPayments/PinPayments.h>
 #import <PinPayments/NSObject+Json.h>
 
 #import <AFNetworking/AFNetworking.h>
@@ -48,7 +47,7 @@
              @"primary": propertyKey(primary)};
 }
 
-+ (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary {
++ (instancetype _Nullable)cardFromDictionary:(nonnull NSDictionary *)dictionary {
     if (!dictionary || [dictionary isKindOfClass:[NSNull class]]) {
         return nil;
     }
@@ -60,8 +59,8 @@
 + (void)createCardInBackground:(nonnull PinCard*)card block:(nonnull PinChardResultBlock)block {
     AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [card encodeIntoDictionary];
-    [manager POST: @"cards" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
-        block([PinCard chargeFromDictionary:responseObject[@"response"]], nil);
+    [manager POST:@"cards" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+        block([PinCard cardFromDictionary:responseObject[@"response"]], nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         block(nil, error);
     }];

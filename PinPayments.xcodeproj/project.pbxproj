@@ -40,6 +40,11 @@
 		B1BF8BA41FE3A7130002312E /* customers-token-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B981FE3A7090002312E /* customers-token-get.json */; };
 		B1BF8BA51FE3A7160002312E /* customers-token-put.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B9A1FE3A7090002312E /* customers-token-put.json */; };
 		B1BF8BA61FE3A7190002312E /* customers-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B9C1FE3A7090002312E /* customers-get.json */; };
+		B1BF8BA81FE3C0A40002312E /* PinBalance.h in Sources */ = {isa = PBXBuildFile; fileRef = B1BF8BA71FE3C0A40002312E /* PinBalance.h */; };
+		B1BF8BAA1FE3C0BB0002312E /* PinBalance.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF8BA91FE3C0BB0002312E /* PinBalance.m */; };
+		B1BF8BAB1FE3C3890002312E /* PinBalance.h in Headers */ = {isa = PBXBuildFile; fileRef = B1BF8BA71FE3C0A40002312E /* PinBalance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1BF8BAE1FE3C6CE0002312E /* balance-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8BAC1FE3C6CC0002312E /* balance-get.json */; };
+		B1BF8BB11FE3C6ED0002312E /* PinBalanceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF8BB01FE3C6ED0002312E /* PinBalanceTests.m */; };
 		B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C78D9D1F3C1C3500BBA862 /* PinCard.m */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +97,10 @@
 		B1BF8B9A1FE3A7090002312E /* customers-token-put.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customers-token-put.json"; sourceTree = "<group>"; };
 		B1BF8B9B1FE3A7090002312E /* customer-cards-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customer-cards-get.json"; sourceTree = "<group>"; };
 		B1BF8B9C1FE3A7090002312E /* customers-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customers-get.json"; sourceTree = "<group>"; };
+		B1BF8BA71FE3C0A40002312E /* PinBalance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinBalance.h; path = PinPayments/PinBalance.h; sourceTree = "<group>"; };
+		B1BF8BA91FE3C0BB0002312E /* PinBalance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinBalance.m; path = PinPayments/PinBalance.m; sourceTree = "<group>"; };
+		B1BF8BAC1FE3C6CC0002312E /* balance-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "balance-get.json"; sourceTree = "<group>"; };
+		B1BF8BB01FE3C6ED0002312E /* PinBalanceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinBalanceTests.m; path = Tests/PinBalanceTests.m; sourceTree = "<group>"; };
 		B1C78D9C1F3C1B2400BBA862 /* PinCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCard.h; path = PinPayments/PinCard.h; sourceTree = "<group>"; };
 		B1C78D9D1F3C1C3500BBA862 /* PinCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCard.m; path = PinPayments/PinCard.m; sourceTree = "<group>"; };
 		B1F247BD1FC069B600526161 /* PinPayments.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = PinPayments.modulemap; path = PinPayments/PinPayments.modulemap; sourceTree = "<group>"; };
@@ -158,6 +167,8 @@
 				B1C78D9C1F3C1B2400BBA862 /* PinCard.h */,
 				B1C78D9D1F3C1C3500BBA862 /* PinCard.m */,
 				B12BB2F61FC06A170051A5CA /* PinPayments.h */,
+				B1BF8BA71FE3C0A40002312E /* PinBalance.h */,
+				B1BF8BA91FE3C0BB0002312E /* PinBalance.m */,
 			);
 			name = PinPayments;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 				B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */,
 				B1BF8B8B1FE386860002312E /* PinCardTests.m */,
 				B1BF8B931FE39CE40002312E /* PinCustomerTests.m */,
+				B1BF8BB01FE3C6ED0002312E /* PinBalanceTests.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -207,6 +219,7 @@
 		B1BD69F11FD93CAD007BC2C0 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				B1BF8BAC1FE3C6CC0002312E /* balance-get.json */,
 				B1BF8B9B1FE3A7090002312E /* customer-cards-get.json */,
 				B1BF8B991FE3A7090002312E /* customer-charges-get.json */,
 				B1BF8B981FE3A7090002312E /* customers-token-get.json */,
@@ -246,6 +259,7 @@
 				B16554DE1F150FA400642E09 /* PinClient.h in Headers */,
 				B13608D21FDA317800BD6439 /* NSDateFormatter+iso8601.h in Headers */,
 				B13608CF1FDA27F300BD6439 /* PinCard.h in Headers */,
+				B1BF8BAB1FE3C3890002312E /* PinBalance.h in Headers */,
 				B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +360,7 @@
 				B1B1AD651FDFA57A006DBFC3 /* charges-search-get.json in Resources */,
 				B1BF8BA61FE3A7190002312E /* customers-get.json in Resources */,
 				B1BF8B901FE38F910002312E /* cards-post.json in Resources */,
+				B1BF8BAE1FE3C6CE0002312E /* balance-get.json in Resources */,
 				B1BF8BA31FE3A7100002312E /* customer-charges-get.json in Resources */,
 				B1B1AD621FDFA49E006DBFC3 /* charges-token-get.json in Resources */,
 				B1B1AD5F1FDF9CA1006DBFC3 /* charges-get.json in Resources */,
@@ -457,7 +472,9 @@
 				B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */,
 				B15B96351F262EB600A51302 /* PinCustomer.m in Sources */,
 				B13608D31FDA317800BD6439 /* NSDateFormatter+iso8601.m in Sources */,
+				B1BF8BA81FE3C0A40002312E /* PinBalance.h in Sources */,
 				B15B96301F262A5100A51302 /* PinCharge.m in Sources */,
+				B1BF8BAA1FE3C0BB0002312E /* PinBalance.m in Sources */,
 				B16554E71F1511A600642E09 /* PinClientConfiguration.m in Sources */,
 				B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */,
 			);
@@ -471,6 +488,7 @@
 				B1BF8B941FE39CE40002312E /* PinCustomerTests.m in Sources */,
 				B1BF8B8D1FE38EAF0002312E /* PinCardTests.m in Sources */,
 				B16554EE1F15192400642E09 /* PinClientTests.m in Sources */,
+				B1BF8BB11FE3C6ED0002312E /* PinBalanceTests.m in Sources */,
 				B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

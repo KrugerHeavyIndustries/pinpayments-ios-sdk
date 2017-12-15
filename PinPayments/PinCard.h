@@ -44,7 +44,7 @@ typedef void(^PinChardResultBlock)(PinCard * _Nullable charge, NSError * _Nullab
 @property (nullable, nonatomic, strong) NSString *customerToken;
 @property (nullable, nonatomic, strong) NSNumber *primary;
 
-+ (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary;
++ (instancetype _Nullable)cardFromDictionary:(nonnull NSDictionary *)dictionary;
 
 + (void)createCardInBackground:(nonnull PinCard*)card block:(nonnull PinChardResultBlock)block;
 

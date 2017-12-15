@@ -38,7 +38,7 @@
              @"card": propertyKey(card)};
 }
 
-+ (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary  {
++ (instancetype _Nullable)customerFromDictionary:(nonnull NSDictionary *)dictionary  {
     if (!dictionary || [dictionary isKindOfClass:[NSNull class]]) {
         return nil;
     }
@@ -51,7 +51,7 @@
     AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [customer encodeIntoDictionary];
     [manager POST:@"customers" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
-        block([PinCustomer chargeFromDictionary:responseObject[@"response"]], nil);
+        block([PinCustomer customerFromDictionary:responseObject[@"response"]], nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         block(nil, error);
     }];
@@ -67,7 +67,7 @@
         NSMutableArray *charges = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
         for (NSDictionary *c in response) {
-            [charges addObject:[PinCustomer chargeFromDictionary:c]];
+            [charges addObject:[PinCustomer customerFromDictionary:c]];
         }
         block(charges, nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -78,7 +78,7 @@
 + (void)fetchCustomerDetailsInBackground:(nonnull NSString*)customerToken block:(nonnull PinCustomerResultBlock)block {
     AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
     [manager GET:[NSString stringWithFormat:@"%@/%@", @"customers", customerToken] parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
-        PinCustomer *customer = [PinCustomer chargeFromDictionary: responseObject[@"response"]];
+        PinCustomer *customer = [PinCustomer customerFromDictionary: responseObject[@"response"]];
         block(customer, nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         block(nil, error);
@@ -88,7 +88,7 @@
 + (void)updateCustomerDetailsInBackground:(nonnull NSString*)customerToken block:(nonnull PinCustomerResultBlock)block {
     AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     [manager PUT:[NSString stringWithFormat:@"customers/%@", customerToken] parameters:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
-        block([PinCustomer chargeFromDictionary: responseObject[@"response"]], nil);
+        block([PinCustomer customerFromDictionary: responseObject[@"response"]], nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         block(nil, error);
     }];
@@ -123,7 +123,7 @@
         NSMutableArray<PinCard*> *cards = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
         for (NSDictionary *c in response) {
-            [cards addObject:[PinCard chargeFromDictionary:c]];
+            [cards addObject:[PinCard cardFromDictionary:c]];
         }
         block(cards, nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {

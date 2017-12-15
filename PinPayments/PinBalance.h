@@ -23,17 +23,20 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-//! Project version number for SampleFramework.
-FOUNDATION_EXPORT double PinPaymentsVersionNumber;
+@interface PinBalanceFragment : NSObject
+@property (nonatomic, assign) NSInteger amount;
+@property (nullable, nonatomic, strong) NSString *currency;
+@end
 
-//! Project version string for SampleFramework.
-FOUNDATION_EXPORT const unsigned char PinPaymentsVersionString[];
+@interface PinBalance : NSObject
 
-#import <PinPayments/PinClient.h>
-#import <PinPayments/PinCustomer.h>
-#import <PinPayments/PinCard.h>
-#import <PinPayments/PinBalance.h>
-#import <PinPayments/PinClientConfiguration.h>
+typedef void (^PinBalanceBlock)(PinBalance *_Nullable balance, NSError *_Nullable error);
 
+@property (nullable, nonatomic, strong) NSArray<PinBalanceFragment *> *available;
+@property (nullable, nonatomic, strong) NSArray<PinBalanceFragment *> *pending;
+
++ (void)fetchBalanceInBackground:(nonnull PinBalanceBlock)block;
+
+@end
