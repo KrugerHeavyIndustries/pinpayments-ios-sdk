@@ -63,7 +63,7 @@
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
         NSString* fixture = OHPathForFile(@"charges-get.json", self.class);
         return [OHHTTPStubsResponse responseWithFileAtPath:fixture
-                                                statusCode:201 headers:@{@"Content-Type":@"application/json"}];
+                                                statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     descriptor.name = @"GET charges";
 
@@ -72,7 +72,7 @@
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
         NSString* fixture = OHPathForFile(@"charges-token-get.json", self.class);
         return [OHHTTPStubsResponse responseWithFileAtPath:fixture
-                                                statusCode:201 headers:@{@"Content-Type":@"application/json"}];
+                                                statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     descriptor.name = @"GET charges/token";
 
@@ -81,7 +81,7 @@
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
         NSString* fixture = OHPathForFile(@"charges-search-get.json", self.class);
         return [OHHTTPStubsResponse responseWithFileAtPath:fixture
-                                                statusCode:201 headers:@{@"Content-Type":@"application/json"}];
+                                                statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
     descriptor.name = @"GET charges/search";
 }
@@ -124,11 +124,8 @@
 }
 
 - (void)testCreateChargeInBackground {
-
     XCTestExpectation *expectation = [self expectationWithDescription:@"createChargeInBackground"];
-
     PinCharge *charge = [[PinCharge alloc] init];
-
     [PinCharge createChargeInBackground:charge block:^(PinCharge * _Nullable charge, NSError * _Nullable error) {
         [self testCharge:charge];
         [expectation fulfill];

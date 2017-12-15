@@ -23,8 +23,9 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import "PinClient.h"
-#import "PinClientConfiguration.h"
+#import <PinPayments/PinClient.h>
+
+#import <AFNetworking/AFNetworking.h>
 
 @implementation PinClient
 
@@ -42,5 +43,16 @@ static PinClientConfiguration *currentPinConfiguration;
 
 + (nullable PinClientConfiguration *)currentConfiguration {
     return currentPinConfiguration;
+}
+
++ (nonnull AFHTTPSessionManager*)configuredSessionManager:(RequestSerializerType)type {
+    PinClientConfiguration* configuration = [PinClient currentConfiguration];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:configuration.server]];
+    if (RequestSerializerJson == type) {
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
+    return manager;
 }
 @end

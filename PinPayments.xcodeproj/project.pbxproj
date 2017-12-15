@@ -31,6 +31,15 @@
 		B1B1AD651FDFA57A006DBFC3 /* charges-search-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1B1AD631FDFA575006DBFC3 /* charges-search-get.json */; };
 		B1BD69F01FD9369C007BC2C0 /* PinChargeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */; };
 		B1BD69F41FD944C4007BC2C0 /* charges-post.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BD69F21FD944BF007BC2C0 /* charges-post.json */; };
+		B1BF8B8D1FE38EAF0002312E /* PinCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF8B8B1FE386860002312E /* PinCardTests.m */; };
+		B1BF8B901FE38F910002312E /* cards-post.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B8E1FE38F8D0002312E /* cards-post.json */; };
+		B1BF8B941FE39CE40002312E /* PinCustomerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF8B931FE39CE40002312E /* PinCustomerTests.m */; };
+		B1BF8B971FE39E7A0002312E /* customers-post.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B951FE39E760002312E /* customers-post.json */; };
+		B1BF8BA21FE3A70D0002312E /* customer-cards-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B9B1FE3A7090002312E /* customer-cards-get.json */; };
+		B1BF8BA31FE3A7100002312E /* customer-charges-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B991FE3A7090002312E /* customer-charges-get.json */; };
+		B1BF8BA41FE3A7130002312E /* customers-token-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B981FE3A7090002312E /* customers-token-get.json */; };
+		B1BF8BA51FE3A7160002312E /* customers-token-put.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B9A1FE3A7090002312E /* customers-token-put.json */; };
+		B1BF8BA61FE3A7190002312E /* customers-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BF8B9C1FE3A7090002312E /* customers-get.json */; };
 		B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C78D9D1F3C1C3500BBA862 /* PinCard.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +83,15 @@
 		B1B1AD631FDFA575006DBFC3 /* charges-search-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-search-get.json"; sourceTree = "<group>"; };
 		B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinChargeTests.m; path = Tests/PinChargeTests.m; sourceTree = "<group>"; };
 		B1BD69F21FD944BF007BC2C0 /* charges-post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-post.json"; sourceTree = "<group>"; };
+		B1BF8B8B1FE386860002312E /* PinCardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinCardTests.m; path = Tests/PinCardTests.m; sourceTree = "<group>"; };
+		B1BF8B8E1FE38F8D0002312E /* cards-post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cards-post.json"; sourceTree = "<group>"; };
+		B1BF8B931FE39CE40002312E /* PinCustomerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinCustomerTests.m; path = Tests/PinCustomerTests.m; sourceTree = "<group>"; };
+		B1BF8B951FE39E760002312E /* customers-post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customers-post.json"; sourceTree = "<group>"; };
+		B1BF8B981FE3A7090002312E /* customers-token-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customers-token-get.json"; sourceTree = "<group>"; };
+		B1BF8B991FE3A7090002312E /* customer-charges-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customer-charges-get.json"; sourceTree = "<group>"; };
+		B1BF8B9A1FE3A7090002312E /* customers-token-put.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customers-token-put.json"; sourceTree = "<group>"; };
+		B1BF8B9B1FE3A7090002312E /* customer-cards-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customer-cards-get.json"; sourceTree = "<group>"; };
+		B1BF8B9C1FE3A7090002312E /* customers-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "customers-get.json"; sourceTree = "<group>"; };
 		B1C78D9C1F3C1B2400BBA862 /* PinCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinCard.h; path = PinPayments/PinCard.h; sourceTree = "<group>"; };
 		B1C78D9D1F3C1C3500BBA862 /* PinCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCard.m; path = PinPayments/PinCard.m; sourceTree = "<group>"; };
 		B1F247BD1FC069B600526161 /* PinPayments.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = PinPayments.modulemap; path = PinPayments/PinPayments.modulemap; sourceTree = "<group>"; };
@@ -133,8 +151,8 @@
 				B16554DA1F150FA400642E09 /* PinClient.m */,
 				B16554DB1F150FA400642E09 /* PinClientConfiguration.h */,
 				B16554E61F1511A600642E09 /* PinClientConfiguration.m */,
-				B15B962F1F262A5100A51302 /* PinCharge.m */,
 				B15B96311F262A6F00A51302 /* PinCharge.h */,
+				B15B962F1F262A5100A51302 /* PinCharge.m */,
 				B15B96321F262EB600A51302 /* PinCustomer.h */,
 				B15B96331F262EB600A51302 /* PinCustomer.m */,
 				B1C78D9C1F3C1B2400BBA862 /* PinCard.h */,
@@ -160,6 +178,8 @@
 				B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */,
 				B16554EB1F15192400642E09 /* PinClientTests.m */,
 				B1BD69EE1FD93616007BC2C0 /* PinChargeTests.m */,
+				B1BF8B8B1FE386860002312E /* PinCardTests.m */,
+				B1BF8B931FE39CE40002312E /* PinCustomerTests.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -187,6 +207,13 @@
 		B1BD69F11FD93CAD007BC2C0 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				B1BF8B9B1FE3A7090002312E /* customer-cards-get.json */,
+				B1BF8B991FE3A7090002312E /* customer-charges-get.json */,
+				B1BF8B981FE3A7090002312E /* customers-token-get.json */,
+				B1BF8B9A1FE3A7090002312E /* customers-token-put.json */,
+				B1BF8B9C1FE3A7090002312E /* customers-get.json */,
+				B1BF8B951FE39E760002312E /* customers-post.json */,
+				B1BF8B8E1FE38F8D0002312E /* cards-post.json */,
 				B1B1AD631FDFA575006DBFC3 /* charges-search-get.json */,
 				B1B1AD601FDFA49B006DBFC3 /* charges-token-get.json */,
 				B1B1AD5D1FDF9C76006DBFC3 /* charges-get.json */,
@@ -317,9 +344,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1B1AD651FDFA57A006DBFC3 /* charges-search-get.json in Resources */,
+				B1BF8BA61FE3A7190002312E /* customers-get.json in Resources */,
+				B1BF8B901FE38F910002312E /* cards-post.json in Resources */,
+				B1BF8BA31FE3A7100002312E /* customer-charges-get.json in Resources */,
 				B1B1AD621FDFA49E006DBFC3 /* charges-token-get.json in Resources */,
 				B1B1AD5F1FDF9CA1006DBFC3 /* charges-get.json in Resources */,
+				B1BF8BA51FE3A7160002312E /* customers-token-put.json in Resources */,
+				B1BF8BA21FE3A70D0002312E /* customer-cards-get.json in Resources */,
 				B1BD69F41FD944C4007BC2C0 /* charges-post.json in Resources */,
+				B1BF8BA41FE3A7130002312E /* customers-token-get.json in Resources */,
+				B1BF8B971FE39E7A0002312E /* customers-post.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +468,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1BD69F01FD9369C007BC2C0 /* PinChargeTests.m in Sources */,
+				B1BF8B941FE39CE40002312E /* PinCustomerTests.m in Sources */,
+				B1BF8B8D1FE38EAF0002312E /* PinCardTests.m in Sources */,
 				B16554EE1F15192400642E09 /* PinClientTests.m in Sources */,
 				B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */,
 			);

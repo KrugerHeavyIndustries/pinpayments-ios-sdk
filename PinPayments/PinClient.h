@@ -28,10 +28,19 @@
 #import <PinPayments/PinClientConfiguration.h>
 #import <PinPayments/PinCharge.h>
 
+@class AFHTTPSessionManager;
+
+typedef NS_ENUM(NSInteger, RequestSerializerType) {
+    RequestSerializerStandard,
+    RequestSerializerJson
+};
+
 @interface PinClient : NSObject
 
 + (void)initializeWithConfiguration:(nonnull PinClientConfiguration *)configuration;
 
-+ (nullable PinClientConfiguration*) currentConfiguration;
++ (nullable PinClientConfiguration*)currentConfiguration;
+
++ (nonnull AFHTTPSessionManager*)configuredSessionManager:(RequestSerializerType)type;
 
 @end

@@ -23,8 +23,11 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import "PinCard.h"
-#import "NSObject+Json.h"
+#import <PinPayments/PinClient.h>
+#import <PinPayments/PinCard.h>
+#import <PinPayments/NSObject+Json.h>
+
+#import <AFNetworking/AFNetworking.h>
 
 @implementation PinCard
 
@@ -43,6 +46,29 @@
              @"address_country": propertyKey(addressCountry),
              @"customer_token": propertyKey(customerToken),
              @"primary": propertyKey(primary)};
+}
+
++ (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary {
+    if (!dictionary || [dictionary isKindOfClass:[NSNull class]]) {
+        return nil;
+    }
+    PinCard *card = [[PinCard alloc] init];
+    [card jsonSetValuesForKeysWithDictionary:dictionary];
+    return card;
+}
+
++ (void)createCardInBackground:(nonnull PinCard*)card block:(nonnull PinChardResultBlock)block {
+    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
+    NSDictionary* parameters = [card encodeIntoDictionary];
+    [manager POST: @"cards" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+        block([PinCard chargeFromDictionary:responseObject[@"response"]], nil);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+-(nonnull NSDictionary*)encodeIntoDictionary {
+    return [self dictionaryWithValuesForKeys:[[PinCard jsonMapping] allValues]];
 }
 
 - (NSString *)description {

@@ -117,7 +117,7 @@ static Class classFromString(NSString *string) {
         } else {
             Class typeClass = classFromString(className);
             if (typeClass) {
-                NSLog(@"%@ --> %@", mappedKey, stringFromClass(typeClass));
+                //NSLog(@"%@ --> %@", mappedKey, stringFromClass(typeClass));
                 if ([typeClass isSubclassOfClass:NSDate.class]) {
                     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                     value = [formatter dateFromISO8601:value];

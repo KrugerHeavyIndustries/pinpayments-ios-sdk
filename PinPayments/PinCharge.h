@@ -51,7 +51,7 @@
 
 typedef void (^PinChargeBuilderBlock)(PinMutableCharge * _Nonnull builder);
 typedef void(^PinChargeResultBlock)(PinCharge * _Nullable charge, NSError * _Nullable error);
-typedef void (^PinChargeArrayResultBlock)(NSArray *_Nullable charges, NSError *_Nullable error);
+typedef void (^PinChargeArrayResultBlock)(NSArray<PinCharge*> *_Nullable charges, NSError *_Nullable error);
 
 @property (readonly, nullable, nonatomic, strong) NSString *email;
 @property (readonly, nullable, nonatomic, strong) NSString *chargeDescription;
@@ -70,19 +70,19 @@ typedef void (^PinChargeArrayResultBlock)(NSArray *_Nullable charges, NSError *_
 @property (readonly, nullable, nonatomic, strong) NSString *customerToken;
 @property (readonly, nullable, nonatomic, strong) NSDictionary *metadata;
 
-+(void)createChargeInBackground:(nonnull PinCharge*)charge block:(nonnull PinChargeResultBlock)block;
++ (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary;
 
-+(void)fetchChargesInBackground:(nonnull PinChargeArrayResultBlock)block;
++ (void)createChargeInBackground:(nonnull PinCharge*)charge block:(nonnull PinChargeResultBlock)block;
 
-+(void)fetchChargesInBackground:(nonnull NSNumber*)page block:(nonnull PinChargeArrayResultBlock)block;
++ (void)fetchChargesInBackground:(nonnull PinChargeArrayResultBlock)block;
 
-+(void)fetchChargesMatchingCriteriaInBackground:(nonnull PinChargeQuery*)query block:(nonnull PinChargeArrayResultBlock)block;
++ (void)fetchChargesInBackground:(nonnull NSNumber*)page block:(nonnull PinChargeArrayResultBlock)block;
 
-+(void)fetchChargeDetailsInBackground:(nonnull NSString*)chargeToken block:(nonnull PinChargeResultBlock)block;
++ (void)fetchChargesMatchingCriteriaInBackground:(nonnull PinChargeQuery*)query block:(nonnull PinChargeArrayResultBlock)block;
 
--(nonnull instancetype)initWithBlock:(nonnull PinChargeBuilderBlock)block;
++ (void)fetchChargeDetailsInBackground:(nonnull NSString*)chargeToken block:(nonnull PinChargeResultBlock)block;
 
--(nonnull NSDictionary*)encodeIntoDictionary;
+- (nonnull instancetype)initWithBlock:(nonnull PinChargeBuilderBlock)block;
 
 @end
 

@@ -26,6 +26,9 @@
 #import <Foundation/Foundation.h>
 
 @interface PinCard : NSObject
+
+typedef void(^PinChardResultBlock)(PinCard * _Nullable charge, NSError * _Nullable error);
+
 @property (nullable, nonatomic, strong) NSString *token;
 @property (nullable, nonatomic, strong) NSString *scheme;
 @property (nullable, nonatomic, strong) NSString *displayNumber;
@@ -40,4 +43,9 @@
 @property (nullable, nonatomic, strong) NSString *addressCountry;
 @property (nullable, nonatomic, strong) NSString *customerToken;
 @property (nullable, nonatomic, strong) NSNumber *primary;
+
++ (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary;
+
++ (void)createCardInBackground:(nonnull PinCard*)card block:(nonnull PinChardResultBlock)block;
+
 @end

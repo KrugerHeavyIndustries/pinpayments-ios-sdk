@@ -28,8 +28,33 @@
 @class PinCard;
 
 @interface PinCustomer : NSObject
+
+typedef void(^PinCustomerResultBlock)(PinCustomer *_Nullable customer, NSError * _Nullable error);
+typedef void(^PinCustomerArrayResultBlock)(NSArray<PinCustomer*> *_Nullable customers, NSError *_Nullable error);
+typedef void(^PinCustomerConfirmationBlock)(bool done, NSError *_Nullable error);
+typedef void(^PinCustomerChargesResultBlock)(NSArray<PinCharge*> *_Nullable charges, NSError *_Nullable error);
+typedef void(^PinCustomerCardsResultBlock)(NSArray<PinCard*> *_Nullable cards, NSError *_Nullable error);
+
 @property (nullable, nonatomic, strong) NSString *token;
 @property (nullable, nonatomic, strong) NSString *email;
 @property (nullable, nonatomic, strong) NSString *createdAt;
+@property (nullable, nonatomic, strong) NSString *cardToken;
 @property (nullable, nonatomic, strong) PinCard *card;
+
++ (void)createCustomerInBackground:(nonnull PinCustomer*)customer block:(nonnull PinCustomerResultBlock)block;
+
++ (void)fetchCustomersInBackground:(nonnull PinCustomerArrayResultBlock)block;
+
++ (void)fetchCustomersInBackground:(nonnull NSNumber*)page block:(nonnull PinCustomerArrayResultBlock)block;
+
++ (void)fetchCustomerDetailsInBackground:(nonnull NSString*)customerToken block:(nonnull PinCustomerResultBlock)block;
+
++ (void)updateCustomerDetailsInBackground:(nonnull NSString*)customerToken block:(nonnull PinCustomerResultBlock)block;
+
++ (void)deleteCustomerInBackground:(nonnull NSString*)customerToken block:(nonnull PinCustomerConfirmationBlock)block;
+
++ (void)fetchCustomerChargesInBackground:(nonnull NSString*)customerToken block:(nonnull PinCustomerChargesResultBlock)block;
+
++ (void)fetchCustomerCardsInBackground:(nonnull NSString*)customerToken block:(nonnull PinCustomerCardsResultBlock)block;
+
 @end

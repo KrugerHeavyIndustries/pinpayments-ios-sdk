@@ -23,10 +23,10 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
+#import <PinPayments/PinPayments.h>
+#import <PinPayments/NSObject+Json.h>
+
 #import <AFNetworking/AFNetworking.h>
-#import "PinCharge.h"
-#import "PinClient.h"
-#import "NSObject+Json.h"
 
 @implementation PinMutableCharge
 - (instancetype)init {
@@ -115,7 +115,7 @@ NSString * const PinChargeQuerySortField_toString[] = {
              @"card": propertyKey(card)};
 }
 
-+ (instancetype)chargeFromDictionary:(NSDictionary *)dictionary  {
++ (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary {
     if (!dictionary || [dictionary isKindOfClass:[NSNull class]]) {
         return nil;
     }
@@ -125,9 +125,7 @@ NSString * const PinChargeQuerySortField_toString[] = {
 }
 
 + (void)createChargeInBackground:(nonnull PinCharge*)charge block:(nonnull PinChargeResultBlock)block {
-    PinClientConfiguration* configuration = [PinClient currentConfiguration];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [charge encodeIntoDictionary];
     [manager POST: @"charges" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
         block([PinCharge chargeFromDictionary:responseObject[@"response"]], nil);
@@ -141,15 +139,10 @@ NSString * const PinChargeQuerySortField_toString[] = {
 }
 
 + (void)fetchChargesInBackground:(nonnull NSNumber*)page block:(nonnull PinChargeArrayResultBlock)block {
-    PinClientConfiguration* configuration = [PinClient currentConfiguration];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
+    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
     [manager GET: @"charges" parameters:@{ @"page": page } progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
         NSMutableArray *charges = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
-        
         for (NSDictionary *c in response) {
             [charges addObject:[PinCharge chargeFromDictionary:c]];
         }
@@ -160,11 +153,7 @@ NSString * const PinChargeQuerySortField_toString[] = {
 }
 
 + (void)fetchChargesMatchingCriteriaInBackground:(nonnull PinChargeQuery*)query block:(nonnull PinChargeArrayResultBlock)block{
-    PinClientConfiguration* configuration = [PinClient currentConfiguration];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
+    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
     [manager GET: @"charges/search" parameters:[query queryParameters] progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
         NSMutableArray *charges = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
@@ -179,11 +168,7 @@ NSString * const PinChargeQuerySortField_toString[] = {
 }
 
 + (void)fetchChargeDetailsInBackground:(nonnull NSString*)chargeToken block:(nonnull PinChargeResultBlock)block {
-    PinClientConfiguration* configuration = [PinClient currentConfiguration];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: configuration.server]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
+    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
     [manager GET:[NSString stringWithFormat:@"%@/%@", @"charges", chargeToken] parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
         PinCharge *charge = [PinCharge chargeFromDictionary: responseObject[@"response"]];
         block(charge, nil);
@@ -216,7 +201,7 @@ NSString * const PinChargeQuerySortField_toString[] = {
     return self;
 }
 
--(nonnull NSDictionary*)encodeIntoDictionary {
+- (nonnull NSDictionary*)encodeIntoDictionary {
    return [self dictionaryWithValuesForKeys:[[PinCharge jsonMapping] allValues]];
 }
 

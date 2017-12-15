@@ -23,7 +23,7 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import "PinClientConfiguration.h"
+#import <PinPayments/PinClientConfiguration.h>
 
 NSString *const _PinDefaultServerURLString = @"https://api.pinpayments.com/1";
 NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1";
