@@ -35,5 +35,8 @@ FOUNDATION_EXPORT const unsigned char PinPaymentsVersionString[];
 #import <PinPayments/PinCustomer.h>
 #import <PinPayments/PinCard.h>
 #import <PinPayments/PinBalance.h>
+#import <PinPayments/PinBankAccount.h>
+#import <PinPayments/PinTransfer.h>
+#import <PinPayments/PinRecipient.h>
 #import <PinPayments/PinClientConfiguration.h>
 

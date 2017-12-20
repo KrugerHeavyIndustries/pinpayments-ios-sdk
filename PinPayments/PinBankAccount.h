@@ -23,20 +23,19 @@
 //    misrepresented as being the original software.
 // 3. This notice may not be removed or altered from any source distribution.
 
-#import <XCTest/XCTest.h>
+#import <Foundation/Foundation.h>
 
-@interface PinClientTests : XCTestCase
+@interface PinBankAccount : NSObject
 
-@end
+typedef void (^PinBankAccountBlock)(PinBankAccount *_Nullable account, NSError *_Nullable error);
 
-@implementation PinClientTests
+@property (nullable, nonatomic, strong) NSString *token;
+@property (nullable, nonatomic, strong) NSString *name;
+@property (nullable, nonatomic, strong) NSString *bsb;
+@property (nullable, nonatomic, strong) NSString *number;
+@property (nullable, nonatomic, strong) NSString *bankName;
+@property (nullable, nonatomic, strong) NSString *branch;
 
-- (void)setUp {
-    [super setUp];
-}
-
-- (void)tearDown {
-    [super tearDown];
-}
++ (void)createBankAccountInBackground:(nonnull PinBankAccount*)account block:(nonnull PinBankAccountBlock)block;
 
 @end

@@ -27,8 +27,8 @@
 #import <OHHTTPStubs/OHHTTPStubs.h>
 #import <OHHTTPStubs/OHPathHelpers.h>
 
-#import "PinPayments.h"
-#import "PinPayments/NSDateFormatter+iso8601.h"
+#import <PinPayments/PinPayments.h>
+#import <PinPayments/NSDateFormatter+iso8601.h>
 
 @interface PinChargeTests : XCTestCase
 @end

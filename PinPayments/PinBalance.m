@@ -66,11 +66,11 @@
     AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
     [manager GET:@"balance" parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
         NSMutableArray<PinBalanceFragment*> *available = @[].mutableCopy;
-        for (NSDictionary* frag in responseObject[@"response"][@"available"]) {
-            [available addObject:[PinBalanceFragment fragmentFromDictionary:frag]];
+        for (NSDictionary* avail in responseObject[@"response"][@"available"]) {
+            [available addObject:[PinBalanceFragment fragmentFromDictionary:avail]];
         }
         NSMutableArray<PinBalanceFragment*> *pending = @[].mutableCopy;
-        for (NSDictionary* pend in  responseObject[@"response"][@"pending"]) {
+        for (NSDictionary* pend in responseObject[@"response"][@"pending"]) {
             [pending addObject:[PinBalanceFragment fragmentFromDictionary:pend]];
         }
         block([[PinBalance alloc] initWithArrays:available pending:pending], nil);
