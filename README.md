@@ -1,6 +1,7 @@
 # PinPayments SDK for iOS
 
 [![Build Status](https://travis-ci.org/KrugerHeavyIndustries/pinpayments-ios-sdk.svg?branch=feature%2Ftravis)](https://travis-ci.org/KrugerHeavyIndustries/pinpayments-ios-sdk)
+![Maintained: yes](https://img.shields.io/badge/maintained-yes-brightgreen.svg)
 
 A library that gives you access to the Pin Payments platform from your iOS app.
 
