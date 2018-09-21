@@ -63,7 +63,7 @@
 
 - (void)testCreateCardInBackground {
     XCTestExpectation *expectation = [self expectationWithDescription:@"createCardInBackground"];
-    PinCard *card = [[PinCard alloc] init];
+    PinMutableCard *card = [[PinMutableCard alloc] init];
     [PinCard createCardInBackground:card block:^(PinCard * _Nullable card, NSError * _Nullable error) {
         XCTAssertEqualObjects(card.token, @"card_pIQJKMs93GsCc9vLSLevbw");
         XCTAssertEqualObjects(card.scheme, @"master");

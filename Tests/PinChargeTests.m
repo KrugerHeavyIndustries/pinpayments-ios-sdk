@@ -125,8 +125,8 @@
 
 - (void)testCreateChargeInBackground {
     XCTestExpectation *expectation = [self expectationWithDescription:@"createChargeInBackground"];
-    PinCharge *charge = [[PinCharge alloc] init];
-    [PinCharge createChargeInBackground:charge block:^(PinCharge * _Nullable charge, NSError * _Nullable error) {
+    PinMutableCharge *charge = [[PinMutableCharge alloc] init];
+    [PinCharge createChargeInBackground:charge block:^(PinCharge * _Nullable charge, PinChargeError * _Nullable error) {
         [self testCharge:charge];
         [expectation fulfill];
     }];
@@ -166,7 +166,7 @@
 
 -(void)testFetchChargeDetailsInBackground {
     XCTestExpectation *expectation = [self expectationWithDescription:@"fetchChargeDetailsInBackground"];
-    [PinCharge fetchChargeDetailsInBackground:@"ch_lfUYEBK14zotCTykezJkfg" block:^(PinCharge * _Nullable charge, NSError * _Nullable error) {
+    [PinCharge fetchChargeDetailsInBackground:@"ch_lfUYEBK14zotCTykezJkfg" block:^(PinCharge * _Nullable charge, PinChargeError * _Nullable error) {
         [self testCharge:charge];
         
         [expectation fulfill];

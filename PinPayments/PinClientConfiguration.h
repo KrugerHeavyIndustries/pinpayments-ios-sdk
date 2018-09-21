@@ -31,6 +31,7 @@
 @property (nullable, nonatomic, copy) NSString *publishableKey;
 @property (nullable, nonatomic, copy) NSString *secretKey;
 @property (nullable, nonatomic, copy) NSString *server;
+@property (nonatomic, assign) BOOL insecure;
 @end
 
 @interface PinClientConfiguration : NSObject<NSCopying, PinMutableClientConfiguration>
@@ -38,6 +39,7 @@
 @property (nullable, nonatomic, copy) NSString *publishableKey;
 @property (nullable, nonatomic, copy) NSString *secretKey;
 @property (nullable, nonatomic, copy) NSString *server;
+@property (nonatomic, assign) BOOL insecure;
 
 + (nonnull instancetype)configurationWithBlock:(void (^_Nullable)(_Nullable id<PinMutableClientConfiguration>))configurationBlock;
 

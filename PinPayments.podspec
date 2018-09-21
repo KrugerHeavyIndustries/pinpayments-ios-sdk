@@ -1,18 +1,20 @@
-Pod::Spec.new do |s|
-  s.name = 'PinPayments'
-  s.version = '0.0.1'
-  s.license = 'MIT'
-  s.summary = 'Pin Payments iOS SDK'
-  s.homepage = 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk'
-  s.authors = { 'Chris Kruger': 'ios-sdk@krugerheavyindustries.com' }
-  s.source = { git: 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk.git' }
-  s.requires_arc = true
+Pod::Spec.new do |spec|
+  spec.name = 'PinPayments'
+  spec.version = '0.0.1'
+  spec.license = 'BSD'
+  spec.summary = 'Pin Payments iOS SDK'
+  spec.homepage = 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk'
+  spec.authors = { 'Chris Kruger': 'ios-sdk@krugerheavyindustries.com' }
+  spec.source = { git: 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk.git', tag: '0.0.1' }
+  spec.requires_arc = true
 
-  s.platform = :ios, :osx, :tvos, :watchos 
-  s.ios.deployment_target = '7.0'
-  s.osx.deployment_target = '10.9'
-  s.watchos.deployment_target = '2.0'
-  s.tvos.deployment_target = '9.0'
+  spec.source_files = "PinPayments/*.{h,m}"
 
-  s.dependency 'AFNetworking', '~> 3.0'
+  spec.platform = :ios, :osx, :tvos, :watchos
+  spec.ios.deployment_target = '7.0'
+  spec.osx.deployment_target = '10.9'
+  spec.watchos.deployment_target = '2.0'
+  spec.tvos.deployment_target = '9.0'
+
+  spec.dependency 'AFNetworking', '~> 3.0'
 end

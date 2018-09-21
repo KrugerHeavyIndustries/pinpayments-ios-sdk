@@ -25,10 +25,23 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^PinCardResultBlock)(PinCard * _Nullable charge, NSError * _Nullable error);
+
+@interface PinMutableCard : NSObject
+@property (nullable, nonatomic, strong) NSString *number;
+@property (nullable, nonatomic, strong) NSNumber *expiryMonth;
+@property (nullable, nonatomic, strong) NSNumber *expiryYear;
+@property (nullable, nonatomic, strong) NSString *cvc;
+@property (nullable, nonatomic, strong) NSString *name;
+@property (nullable, nonatomic, strong) NSString *addressLine1;
+@property (nullable, nonatomic, strong) NSString *addressLine2;
+@property (nullable, nonatomic, strong) NSString *addressCity;
+@property (nullable, nonatomic, strong) NSString *addressPostcode;
+@property (nullable, nonatomic, strong) NSString *addressState;
+@property (nullable, nonatomic, strong) NSString *addressCountry;
+@end
+
 @interface PinCard : NSObject
-
-typedef void(^PinChardResultBlock)(PinCard * _Nullable charge, NSError * _Nullable error);
-
 @property (nullable, nonatomic, strong) NSString *token;
 @property (nullable, nonatomic, strong) NSString *scheme;
 @property (nullable, nonatomic, strong) NSString *displayNumber;
@@ -46,6 +59,6 @@ typedef void(^PinChardResultBlock)(PinCard * _Nullable charge, NSError * _Nullab
 
 + (instancetype _Nullable)cardFromDictionary:(nonnull NSDictionary *)dictionary;
 
-+ (void)createCardInBackground:(nonnull PinCard*)card block:(nonnull PinChardResultBlock)block;
++ (void)createCardInBackground:(nonnull PinMutableCard*)card block:(nonnull PinCardResultBlock)block;
 
 @end

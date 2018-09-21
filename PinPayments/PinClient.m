@@ -48,6 +48,11 @@ static PinClientConfiguration *currentPinConfiguration;
 + (nonnull AFHTTPSessionManager*)configuredSessionManager:(RequestSerializerType)type {
     PinClientConfiguration* configuration = [PinClient currentConfiguration];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:configuration.server]];
+    if (configuration.insecure) {
+        manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        manager.securityPolicy.allowInvalidCertificates = YES;
+        manager.securityPolicy.validatesDomainName = NO;
+    }
     if (RequestSerializerJson == type) {
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }

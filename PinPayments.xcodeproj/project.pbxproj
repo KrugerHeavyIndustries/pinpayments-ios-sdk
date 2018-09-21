@@ -365,6 +365,7 @@
 				TargetAttributes = {
 					B193D6CA1F0290D70066B172 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4T4P7HJSXL;
 						ProvisioningStyle = Automatic;
 					};
 					B193D6D31F0290D70066B172 = {
@@ -664,8 +665,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4ABAAA9F61ABBC4A21D2F107 /* Pods-PinPayments.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4T4P7HJSXL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -685,6 +687,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4T4P7HJSXL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

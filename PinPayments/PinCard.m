@@ -28,6 +28,33 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+@implementation PinMutableCard
+
++ (NSDictionary*)jsonMapping {
+    return @{@"number": propertyKey(number),
+             @"expiry_month": propertyKey(expiryMonth),
+             @"expiry_year": propertyKey(expiryYear),
+             @"cvc": propertyKey(cvc),
+             @"name": propertyKey(name),
+             @"address_line1": propertyKey(addressLine1),
+             @"address_line2": propertyKey(addressLine2),
+             @"address_city": propertyKey(addressCity),
+             @"address_postcode": propertyKey(addressPostcode),
+             @"address_state": propertyKey(addressState),
+             @"address_country": propertyKey(addressCountry)};
+}
+
+- (id)valueForKey:(NSString *)key {
+    NSString* nativeKey = [[PinMutableCard jsonMapping] valueForKey:key];
+    return [super valueForKey:nativeKey];
+}
+
+- (nonnull NSDictionary*)encodeIntoDictionary {
+    return [self dictionaryWithValuesForKeys:[[PinMutableCard jsonMapping] allKeys]];
+}
+
+@end
+
 @implementation PinCard
 
 + (NSDictionary*)jsonMapping {
@@ -56,7 +83,7 @@
     return card;
 }
 
-+ (void)createCardInBackground:(nonnull PinCard*)card block:(nonnull PinChardResultBlock)block {
++ (void)createCardInBackground:(nonnull PinMutableCard*)card block:(nonnull PinCardResultBlock)block {
     AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [card encodeIntoDictionary];
     [manager POST:@"cards" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
@@ -66,7 +93,7 @@
     }];
 }
 
--(nonnull NSDictionary*)encodeIntoDictionary {
+- (nonnull NSDictionary*)encodeIntoDictionary {
     return [self dictionaryWithValuesForKeys:[[PinCard jsonMapping] allValues]];
 }
 

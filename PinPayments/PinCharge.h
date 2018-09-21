@@ -26,31 +26,33 @@
 #import <Foundation/Foundation.h>
 
 @class PinCard;
+@class PinMutableCard;
 @class PinChargeQuery;
 
+@interface PinChargeError : NSObject
+@property (nullable, nonatomic, strong) NSString *error;
+@property (nullable, nonatomic, strong) NSString *errorDescription;
+@property (nullable, nonatomic, strong) NSArray *messages;
+@property (nullable, nonatomic, strong) NSString *chargeToken;
+
++ (instancetype _Nullable)fromDictionary:(nonnull NSDictionary *)dictionary;
+
+@end
+
 @interface PinMutableCharge : NSObject
-@property (nullable, nonatomic, strong) NSString *email;
-@property (nullable, nonatomic, strong) NSString *chargeDescription;
 @property (nonatomic, assign) NSInteger amount;
-@property (nullable, nonatomic, strong) NSString *ipAddress;
-@property (nullable, nonatomic, strong) NSDate *created;
 @property (nullable, nonatomic, strong) NSString *currency;
-@property (nonatomic, assign) BOOL capture;
-@property (nonatomic, assign) BOOL success;
-@property (nullable, nonatomic, strong) NSString *statusMessage;
-@property (nullable, nonatomic, strong) NSString *errorMessage;
-@property (nullable, nonatomic, strong) PinCard *card;
-@property (nonatomic, assign) BOOL authorizationExpired;
-@property (nullable, nonatomic, strong) NSString *token;
-@property (nullable, nonatomic, strong) NSString *cardToken;
-@property (nullable, nonatomic, strong) NSString *customerToken;
+@property (nullable, nonatomic, strong) NSString *chargeDescription;
+@property (nullable, nonatomic, strong) NSString *email;
+@property (nullable, nonatomic, strong) NSString *ipAddress;
+@property (nullable, nonatomic, strong) PinMutableCard *card;
 @property (nullable, nonatomic, strong) NSDictionary *metadata;
 @end
 
 @interface PinCharge : NSObject
 
 typedef void (^PinChargeBuilderBlock)(PinMutableCharge * _Nonnull builder);
-typedef void (^PinChargeResultBlock)(PinCharge * _Nullable charge, NSError * _Nullable error);
+typedef void (^PinChargeResultBlock)(PinCharge * _Nullable charge, PinChargeError* _Nullable error);
 typedef void (^PinChargeArrayResultBlock)(NSArray<PinCharge*> *_Nullable charges, NSError *_Nullable error);
 
 @property (readonly, nullable, nonatomic, strong) NSString *email;
@@ -72,7 +74,7 @@ typedef void (^PinChargeArrayResultBlock)(NSArray<PinCharge*> *_Nullable charges
 
 + (instancetype _Nullable)chargeFromDictionary:(nonnull NSDictionary *)dictionary;
 
-+ (void)createChargeInBackground:(nonnull PinCharge*)charge block:(nonnull PinChargeResultBlock)block;
++ (void)createChargeInBackground:(nonnull PinMutableCharge*)charge block:(nonnull PinChargeResultBlock)block;
 
 + (void)fetchChargesInBackground:(nonnull PinChargeArrayResultBlock)block;
 
@@ -81,8 +83,6 @@ typedef void (^PinChargeArrayResultBlock)(NSArray<PinCharge*> *_Nullable charges
 + (void)fetchChargesMatchingCriteriaInBackground:(nonnull PinChargeQuery*)query block:(nonnull PinChargeArrayResultBlock)block;
 
 + (void)fetchChargeDetailsInBackground:(nonnull NSString*)chargeToken block:(nonnull PinChargeResultBlock)block;
-
-- (nonnull instancetype)initWithBlock:(nonnull PinChargeBuilderBlock)block;
 
 @end
 

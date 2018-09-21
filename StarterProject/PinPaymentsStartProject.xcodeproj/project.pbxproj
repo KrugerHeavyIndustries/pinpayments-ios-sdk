@@ -143,6 +143,7 @@
 				TargetAttributes = {
 					B18486281F46CBAB004185B1 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4T4P7HJSXL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -362,6 +363,7 @@
 			baseConfigurationReference = 177D44E10EC2CB73279F83FB /* Pods-PinPaymentsStartProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4T4P7HJSXL;
 				INFOPLIST_FILE = PinPaymentsStartProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.PinPaymentsStartProject;
@@ -374,6 +376,7 @@
 			baseConfigurationReference = 2B1ECF1A26E2292DE6FBAEED /* Pods-PinPaymentsStartProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4T4P7HJSXL;
 				INFOPLIST_FILE = PinPaymentsStartProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pinpayments.PinPaymentsStartProject;

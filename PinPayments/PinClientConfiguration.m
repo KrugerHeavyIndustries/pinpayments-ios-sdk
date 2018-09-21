@@ -88,6 +88,7 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
         configuration->_secretKey = [self->_secretKey copy];
         configuration->_publishableKey = [self->_publishableKey copy];
         configuration->_server = [self->_server copy];
+        configuration->_insecure = self->_insecure;
     }];
 }
 

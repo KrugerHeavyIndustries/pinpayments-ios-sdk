@@ -28,27 +28,60 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+@implementation PinChargeError
+
++ (NSDictionary*)jsonMapping {
+    return @{@"error": propertyKey(error),
+             @"error_description": propertyKey(errorDescription),
+             @"message": propertyKey(message),
+             @"charge_token": propertyKey(chargeToken)};
+}
+
++ (instancetype _Nullable)fromDictionary:(nonnull NSDictionary *)dictionary {
+    if (!dictionary || [dictionary isKindOfClass:[NSNull class]]) {
+        return nil;
+    }
+    PinChargeError *error = [[PinChargeError alloc] init];
+    [error jsonSetValuesForKeysWithDictionary:dictionary];
+    return error;
+}
+
+@end
+
 @implementation PinMutableCharge
+
++ (NSDictionary*)jsonMapping {
+    return @{@"amount": propertyKey(amount),
+             @"currency": propertyKey(currency),
+             @"description": propertyKey(chargeDescription),
+             @"email": propertyKey(email),
+             @"ip_address":propertyKey(ipAddress),
+             @"card": propertyKey(card)};
+}
+
 - (instancetype)init {
     if (self = [super init]) {
-        _email = nil;
-        _chargeDescription = nil;
         _amount = 0;
+        _chargeDescription = nil;
+        _email = nil;
         _ipAddress = nil;
-        _created = nil;
-        _currency = nil;
-        _capture = nil;
-        _success = NO;
-        _statusMessage = nil;
-        _errorMessage = nil;
-        _card = nil;
-        _authorizationExpired = nil;
-        _token = nil;
-        _cardToken = nil;
-        _customerToken = nil;
+        _card = [[PinMutableCard alloc] init];
         _metadata = nil;
     }
     return self;
+}
+
+- (id)valueForKey:(NSString *)key {
+    NSString* nativeKey = [[PinMutableCharge jsonMapping] valueForKey:key];
+    id val = [super valueForKey:nativeKey];
+    if ([val isKindOfClass:[PinMutableCard class]]) {
+        return [self.card dictionaryWithValuesForKeys:[[PinMutableCard jsonMapping] allKeys]];
+    }
+    return val;
+}
+
+- (nonnull NSDictionary*)encodeIntoDictionary {
+    return [self dictionaryWithValuesForKeys:[[PinMutableCharge jsonMapping] allKeys]];
 }
 @end
 
@@ -124,13 +157,15 @@ NSString * const PinChargeQuerySortField_toString[] = {
     return charge;
 }
 
-+ (void)createChargeInBackground:(nonnull PinCharge*)charge block:(nonnull PinChargeResultBlock)block {
++ (void)createChargeInBackground:(nonnull PinMutableCharge*)charge block:(nonnull PinChargeResultBlock)block {
     AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [charge encodeIntoDictionary];
     [manager POST: @"charges" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
         block([PinCharge chargeFromDictionary:responseObject[@"response"]], nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        block(nil, error);
+        NSError *jsonError = nil;
+        id jsonObject = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONWritingPrettyPrinted error:&jsonError];
+        block(nil, [PinChargeError fromDictionary:jsonObject]);
     }];
 }
 
@@ -175,30 +210,6 @@ NSString * const PinChargeQuerySortField_toString[] = {
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         block(nil, error);
     }];
-}
-
--(instancetype)initWithBlock:(nonnull PinChargeBuilderBlock)block {
-    PinMutableCharge *builder = [[PinMutableCharge alloc] init];
-    block(builder);
-    if (self = [super init]) {
-        _email = builder.email;
-        _chargeDescription = builder.chargeDescription;
-        _amount = builder.amount;
-        _ipAddress = builder.ipAddress;
-        _created = builder.created;
-        _currency = builder.currency;
-        _capture = builder.capture;
-        _success = builder.success;
-        _statusMessage = builder.statusMessage;
-        _errorMessage = builder.errorMessage;
-        _card = builder.card;
-        _authorizationExpired = builder.authorizationExpired;
-        _token = builder.token;
-        _cardToken = builder.cardToken;
-        _customerToken = builder.customerToken;
-        _metadata = builder.metadata;
-    }
-    return self;
 }
 
 - (nonnull NSDictionary*)encodeIntoDictionary {

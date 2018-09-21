@@ -78,7 +78,7 @@ static Class classFromString(NSString *string) {
     for (NSString* key in dictionary) {
         NSString *propertyName = mapping[key];
         if (propertyName) {
-            [self jsonSetValue: [dictionary valueForKey:key] forKey:propertyName];
+            [self jsonSetValue:[dictionary valueForKey:key] forKey:propertyName];
         }
     }
 }
