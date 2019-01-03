@@ -78,6 +78,10 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
     _server = [server copy];
 }
 
+- (void)setCustomHTTPHeaders:(NSDictionary *)customHTTPHeaders {
+    _customHTTPHeaders = [customHTTPHeaders copy];
+}
+
 ///--------------------------------------
 #pragma mark - NSCopying
 ///--------------------------------------

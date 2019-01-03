@@ -56,6 +56,11 @@ static PinClientConfiguration *currentPinConfiguration;
     if (RequestSerializerJson == type) {
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }
+    if (configuration.customHTTPHeaders) {
+        [configuration.customHTTPHeaders enumerateKeysAndObjectsUsingBlock:^(NSString* _Nonnull key, NSString* _Nonnull obj, BOOL * _Nonnull stop) {
+            [manager.requestSerializer setValue:obj forHTTPHeaderField:key];
+        }];
+    }
     manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
     return manager;
