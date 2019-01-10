@@ -163,9 +163,13 @@ NSString * const PinChargeQuerySortField_toString[] = {
     [manager POST: @"charges" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
         block([PinCharge chargeFromDictionary:responseObject[@"response"]], nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSError *jsonError = nil;
-        id jsonObject = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONWritingPrettyPrinted error:&jsonError];
-        block(nil, [PinChargeError fromDictionary:jsonObject]);
+        if (error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey]) {
+            NSError *jsonError = nil;
+            id jsonObject = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONWritingPrettyPrinted error:&jsonError];
+            block(nil, [PinChargeError fromDictionary:jsonObject]);
+        } else {
+            block(nil, [PinChargeError fromDictionary:@{ @"error": @"system_error", @"error_description": error.localizedDescription}]);
+        }
     }];
 }
 

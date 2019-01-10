@@ -25,6 +25,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class PinCard;
+
 typedef void(^PinCardResultBlock)(PinCard * _Nullable charge, NSError * _Nullable error);
 
 @interface PinMutableCard : NSObject
