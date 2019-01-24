@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
   spec.name = 'PinPayments'
-  spec.version = '0.0.1'
+  spec.version = '0.0.2'
   spec.license = 'BSD'
   spec.summary = 'Pin Payments iOS SDK'
   spec.homepage = 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk'
   spec.authors = { 'Chris Kruger': 'ios-sdk@krugerheavyindustries.com' }
-  spec.source = { git: 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk.git', tag: '0.0.1' }
+  spec.source = { git: 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk.git', tag: '0.0.2' }
   spec.requires_arc = true
 
   spec.source_files = "PinPayments/*.{h,m}"
