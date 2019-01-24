@@ -123,6 +123,8 @@ static Class classFromString(NSString *string) {
                     value = [formatter dateFromISO8601:value];
                 } else if ([value isKindOfClass:NSString.class] || [value isKindOfClass:NSNumber.class]) {
                     
+                } else if ([value isKindOfClass:NSArray.class]) {
+                    value = [NSArray arrayWithArray:value];
                 } else if ([typeClass isSubclassOfClass:NSObject.class]) {
                     id instance = nil;
                     instance = [[typeClass alloc] init];

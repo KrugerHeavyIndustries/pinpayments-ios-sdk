@@ -33,7 +33,7 @@
 + (NSDictionary*)jsonMapping {
     return @{@"error": propertyKey(error),
              @"error_description": propertyKey(errorDescription),
-             @"message": propertyKey(message),
+             @"messages": propertyKey(messages),
              @"charge_token": propertyKey(chargeToken)};
 }
 

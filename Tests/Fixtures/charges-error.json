@@ -1,0 +1,11 @@
+{
+  "error": "invalid_resource",
+  "error_description": "One or more parameters were missing or invalid",
+  "messages": [
+    {
+      "code": "description_invalid",
+      "message": "Description can't be blank",
+      "param": "description"
+    }
+  ]
+}
