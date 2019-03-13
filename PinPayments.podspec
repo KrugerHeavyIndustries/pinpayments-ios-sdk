@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'PinPayments'
-  spec.version = '0.0.2'
+  spec.version = '0.0.3'
   spec.license = 'BSD'
   spec.summary = 'Pin Payments iOS SDK'
   spec.homepage = 'https://github.com/KrugerHeavyIndustries/pinpayments-ios-sdk'
@@ -15,6 +15,4 @@ Pod::Spec.new do |spec|
   spec.osx.deployment_target = '10.9'
   spec.watchos.deployment_target = '2.0'
   spec.tvos.deployment_target = '9.0'
-
-  spec.dependency 'AFNetworking', '~> 3.0'
 end
