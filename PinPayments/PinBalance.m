@@ -25,8 +25,7 @@
 
 #import <PinPayments/PinPayments.h>
 #import <PinPayments/NSObject+Json.h>
-
-#include <AFNetworking/AFNetworking.h>
+#import <PinPayments/PinRequest.h>
 
 @implementation PinBalanceFragment
 
@@ -63,8 +62,8 @@
 }
 
 + (void)fetchBalanceInBackground:(nonnull PinBalanceBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
-    [manager GET:@"balance" parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+    
+    [PinRequest GET:@"balance" parameters:nil success:^(id _Nullable responseObject) {
         NSMutableArray<PinBalanceFragment*> *available = @[].mutableCopy;
         for (NSDictionary* avail in responseObject[@"response"][@"available"]) {
             [available addObject:[PinBalanceFragment fragmentFromDictionary:avail]];
@@ -74,7 +73,7 @@
             [pending addObject:[PinBalanceFragment fragmentFromDictionary:pend]];
         }
         block([[PinBalance alloc] initWithArrays:available pending:pending], nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }

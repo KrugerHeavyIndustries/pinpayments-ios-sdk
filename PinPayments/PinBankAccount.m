@@ -25,8 +25,7 @@
 
 #import <PinPayments/PinPayments.h>
 #import <PinPayments/NSObject+Json.h>
-
-#include <AFNetworking/AFNetworking.h>
+#import <PinPayments/PinRequest.h>
 
 @implementation PinBankAccount
 
@@ -49,11 +48,10 @@
 }
 
 + (void)createBankAccountInBackground:(nonnull PinBankAccount*)account block:(nonnull PinBankAccountBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [account encodeIntoDictionary];
-    [manager POST:@"bank_accounts" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+    [PinRequest POST:@"bank_accounts" contentType:@"application/json" parameters:parameters success:^(id _Nullable responseObject) {
         block([PinBankAccount accountFromDictionary:responseObject[@"response"]], nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }

@@ -10,7 +10,6 @@ end
 
 target 'PinPayments' do
   project 'PinPayments.xcodeproj'
-  pod 'AFNetworking', '~> 3.0'
 
   target 'PinPaymentsTests' do
     inherit! :search_paths
