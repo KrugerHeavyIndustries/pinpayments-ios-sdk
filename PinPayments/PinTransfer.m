@@ -26,7 +26,7 @@
 #import <PinPayments/PinPayments.h>
 #import <PinPayments/NSObject+Json.h>
 
-#include <AFNetworking/AFNetworking.h>
+#import <PinPayments/PinRequest.h>
 
 @implementation PinTransferLineItem
 + (NSDictionary*)jsonMapping {
@@ -76,11 +76,10 @@
 }
 
 + (void)createTransferInBackground:(nonnull PinTransfer*)transfer block:(nonnull PinTransferResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
-    NSDictionary* parameters = [transfer encodeIntoDictionary];
-    [manager POST:@"transfers" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+    NSDictionary *parameters = [transfer encodeIntoDictionary];
+    [PinRequest POST:@"transfers" parameters:parameters success:^(id _Nullable responseObject) {
         block([PinTransfer transferFromDictionary:responseObject[@"response"]], nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }
@@ -90,38 +89,35 @@
 }
 
 + (void)fetchTransfersInBackground:(nonnull NSNumber*)page block:(nonnull PinTransferArrayResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
-    [manager GET:@"transfers" parameters:@{ @"page": page } progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+    [PinRequest GET:@"transfers" parameters:@{ @"page": page } success:^(id _Nullable responseObject) {
         NSMutableArray *transfers = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
         for (NSDictionary *c in response) {
             [transfers addObject:[PinTransfer transferFromDictionary:c]];
         }
         block(transfers, nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }
 
 + (void)fetchTransferDetailsInBackground:(nonnull NSString*)transferToken block:(nonnull PinTransferResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
-    [manager GET:[NSString stringWithFormat:@"transfers/%@", transferToken] parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+    [PinRequest GET:[NSString stringWithFormat:@"transfers/%@", transferToken] parameters:nil success:^(id _Nullable responseObject) {
         block([PinTransfer transferFromDictionary:responseObject[@"response"]], nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }
 
 + (void)fetchTransferLineItemsInBackground:(nonnull NSString*)transferToken page:(NSInteger)page block:(nonnull PinTransferLineItemsResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
-    [manager GET:[NSString stringWithFormat:@"transfers/%@/line_items", transferToken] parameters:@{ @"page":[NSNumber numberWithLong:page] } progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+    [PinRequest GET:[NSString stringWithFormat:@"transfers/%@/line_items", transferToken] parameters:@{ @"page":[NSNumber numberWithLong:page] } success:^(id _Nullable responseObject) {
         NSMutableArray *lineItems = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
         for (NSDictionary *lineItem in response) {
             [lineItems addObject:[PinTransferLineItem lineItemFromDictionary:lineItem]];
         }
         block(lineItems, nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }

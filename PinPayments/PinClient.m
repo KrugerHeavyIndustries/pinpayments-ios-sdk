@@ -25,8 +25,6 @@
 
 #import <PinPayments/PinClient.h>
 
-#import <AFNetworking/AFNetworking.h>
-
 @implementation PinClient
 
 static PinClientConfiguration *currentPinConfiguration;
@@ -43,26 +41,5 @@ static PinClientConfiguration *currentPinConfiguration;
 
 + (nullable PinClientConfiguration *)currentConfiguration {
     return currentPinConfiguration;
-}
-
-+ (nonnull AFHTTPSessionManager*)configuredSessionManager:(RequestSerializerType)type {
-    PinClientConfiguration* configuration = [PinClient currentConfiguration];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:configuration.server]];
-    if (configuration.insecure) {
-        manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        manager.securityPolicy.allowInvalidCertificates = YES;
-        manager.securityPolicy.validatesDomainName = NO;
-    }
-    if (RequestSerializerJson == type) {
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    }
-    if (configuration.customHTTPHeaders) {
-        [configuration.customHTTPHeaders enumerateKeysAndObjectsUsingBlock:^(NSString* _Nonnull key, NSString* _Nonnull obj, BOOL * _Nonnull stop) {
-            [manager.requestSerializer setValue:obj forHTTPHeaderField:key];
-        }];
-    }
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:configuration.secretKey password: @""];
-    return manager;
 }
 @end

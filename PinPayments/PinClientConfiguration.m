@@ -28,7 +28,9 @@
 NSString *const _PinDefaultServerURLString = @"https://api.pinpayments.com/1";
 NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1";
 
-@implementation PinClientConfiguration
+@implementation PinClientConfiguration {
+    NSURL* _baseURL;
+}
 
 + (instancetype)emptyConfiguration {
     return [[super alloc] initEmpty];
@@ -80,6 +82,17 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
 
 - (void)setCustomHTTPHeaders:(NSDictionary *)customHTTPHeaders {
     _customHTTPHeaders = [customHTTPHeaders copy];
+}
+
+- (NSURL*)baseURL {
+    if (_baseURL == nil) {
+        _baseURL = [NSURL URLWithString:self.server];
+        // Ensure terminal slash for baseURL path, so that NSURL +URLWithString:relativeToURL: works as expected
+        if ([[_baseURL path] length] > 0 && ![[_baseURL absoluteString] hasSuffix:@"/"]) {
+            _baseURL = [_baseURL URLByAppendingPathComponent:@""];
+        }
+    }
+    return _baseURL;
 }
 
 ///--------------------------------------

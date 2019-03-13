@@ -42,6 +42,7 @@
 @property (nullable, nonatomic, copy) NSString *server;
 @property (nullable, nonatomic, copy) NSDictionary* customHTTPHeaders;
 @property (nonatomic, assign) BOOL insecure;
+@property (nullable, readonly) NSURL* baseURL;
 
 + (nonnull instancetype)configurationWithBlock:(void (^_Nullable)(_Nullable id<PinMutableClientConfiguration>))configurationBlock;
 

@@ -41,6 +41,4 @@ typedef NS_ENUM(NSInteger, RequestSerializerType) {
 
 + (nullable PinClientConfiguration*)currentConfiguration;
 
-+ (nonnull AFHTTPSessionManager*)configuredSessionManager:(RequestSerializerType)type;
-
 @end

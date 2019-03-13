@@ -64,6 +64,8 @@
 		B1C78D9E1F3C1C3500BBA862 /* PinCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C78D9D1F3C1C3500BBA862 /* PinCard.m */; };
 		B1D5CC991FEA48170011C0F0 /* recipients-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1D5CC951FEA48100011C0F0 /* recipients-get.json */; };
 		B1D5CC9A1FEA481A0011C0F0 /* recipients-post.json in Resources */ = {isa = PBXBuildFile; fileRef = B1D5CC961FEA48100011C0F0 /* recipients-post.json */; };
+		B1DE65D3221FD54E0058EEE6 /* PinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE65D2221FD54E0058EEE6 /* PinRequest.m */; };
+		B1DE65D4221FDB450058EEE6 /* PinRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DE65D1221FD3D30058EEE6 /* PinRequest.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		B1C78D9D1F3C1C3500BBA862 /* PinCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinCard.m; path = PinPayments/PinCard.m; sourceTree = "<group>"; };
 		B1D5CC951FEA48100011C0F0 /* recipients-get.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "recipients-get.json"; sourceTree = "<group>"; };
 		B1D5CC961FEA48100011C0F0 /* recipients-post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "recipients-post.json"; sourceTree = "<group>"; };
+		B1DE65D1221FD3D30058EEE6 /* PinRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PinRequest.h; path = PinPayments/PinRequest.h; sourceTree = "<group>"; };
+		B1DE65D2221FD54E0058EEE6 /* PinRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinRequest.m; path = PinPayments/PinRequest.m; sourceTree = "<group>"; };
 		B1F247BD1FC069B600526161 /* PinPayments.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = PinPayments.modulemap; path = PinPayments/PinPayments.modulemap; sourceTree = "<group>"; };
 		EC36E60929216B7B2BF92445 /* Pods-PinPayments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinPayments.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinPayments/Pods-PinPayments.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +213,8 @@
 				B1BF4E0F1FEA0DA20029C631 /* PinTransfer.m */,
 				B1BF4E131FEA0DF70029C631 /* PinRecipient.h */,
 				B1BF4E121FEA0DF70029C631 /* PinRecipient.m */,
+				B1DE65D1221FD3D30058EEE6 /* PinRequest.h */,
+				B1DE65D2221FD54E0058EEE6 /* PinRequest.m */,
 			);
 			name = PinPayments;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 				B1BF4E161FEA0DF70029C631 /* PinRecipient.h in Headers */,
 				B1BF4E091FEA09240029C631 /* PinBankAccount.h in Headers */,
 				B16554DE1F150FA400642E09 /* PinClient.h in Headers */,
+				B1DE65D4221FDB450058EEE6 /* PinRequest.h in Headers */,
 				B13608CF1FDA27F300BD6439 /* PinCard.h in Headers */,
 				B1BF8BAB1FE3C3890002312E /* PinBalance.h in Headers */,
 				B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */,
@@ -444,12 +451,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PinPaymentsTests/Pods-PinPaymentsTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -532,6 +537,7 @@
 				B16554DF1F150FA400642E09 /* PinClient.m in Sources */,
 				B1BF4E061FEA07360029C631 /* PinBankAccount.h in Sources */,
 				B1BF4E081FEA07780029C631 /* PinBankAccount.m in Sources */,
+				B1DE65D3221FD54E0058EEE6 /* PinRequest.m in Sources */,
 				B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */,
 				B15B96351F262EB600A51302 /* PinCustomer.m in Sources */,
 				B13608D31FDA317800BD6439 /* NSDateFormatter+iso8601.m in Sources */,

@@ -25,8 +25,7 @@
 
 #import <PinPayments/PinPayments.h>
 #import <PinPayments/NSObject+Json.h>
-
-#import <AFNetworking/AFNetworking.h>
+#import <PinPayments/PinRequest.h>
 
 @implementation PinMutableCard
 
@@ -84,11 +83,10 @@
 }
 
 + (void)createCardInBackground:(nonnull PinMutableCard*)card block:(nonnull PinCardResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [card encodeIntoDictionary];
-    [manager POST:@"cards" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
-        block([PinCard cardFromDictionary:responseObject[@"response"]], nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    [PinRequest POST:@"cards" contentType:@"application/json" parameters:parameters success:^(id _Nullable responseObject) {
+         block([PinCard cardFromDictionary:responseObject[@"response"]], nil);
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }

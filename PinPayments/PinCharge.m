@@ -25,8 +25,7 @@
 
 #import <PinPayments/PinPayments.h>
 #import <PinPayments/NSObject+Json.h>
-
-#import <AFNetworking/AFNetworking.h>
+#import <PinPayments/PinRequest.h>
 
 @implementation PinChargeError
 
@@ -158,14 +157,13 @@ NSString * const PinChargeQuerySortField_toString[] = {
 }
 
 + (void)createChargeInBackground:(nonnull PinMutableCharge*)charge block:(nonnull PinChargeResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerJson];
     NSDictionary* parameters = [charge encodeIntoDictionary];
-    [manager POST: @"charges" parameters:parameters progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject) {
+    [PinRequest POST:@"charges" contentType:@"application/json" parameters:parameters success:^(id _Nullable responseObject) {
         block([PinCharge chargeFromDictionary:responseObject[@"response"]], nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        if (error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey]) {
+    } failure:^(NSError *error) {
+        if (error.domain == PinRequestFailingURLResponseErrorDomain) {
             NSError *jsonError = nil;
-            id jsonObject = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:NSJSONWritingPrettyPrinted error:&jsonError];
+            id jsonObject = [NSJSONSerialization JSONObjectWithData:error.userInfo[PinRequestFailingURLResponseDataErrorKey] options:NSJSONReadingMutableContainers error:&jsonError];
             block(nil, [PinChargeError fromDictionary:jsonObject]);
         } else {
             block(nil, [PinChargeError fromDictionary:@{ @"error": @"system_error", @"error_description": error.localizedDescription}]);
@@ -178,22 +176,20 @@ NSString * const PinChargeQuerySortField_toString[] = {
 }
 
 + (void)fetchChargesInBackground:(nonnull NSNumber*)page block:(nonnull PinChargeArrayResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
-    [manager GET: @"charges" parameters:@{ @"page": page } progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+    [PinRequest GET:@"charges" parameters:@{ @"page": page } success:^(id _Nullable responseObject) {
         NSMutableArray *charges = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
         for (NSDictionary *c in response) {
             [charges addObject:[PinCharge chargeFromDictionary:c]];
         }
         block(charges, nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }
 
 + (void)fetchChargesMatchingCriteriaInBackground:(nonnull PinChargeQuery*)query block:(nonnull PinChargeArrayResultBlock)block{
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
-    [manager GET: @"charges/search" parameters:[query queryParameters] progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+    [PinRequest GET:@"charges/search" parameters:[query queryParameters] success:^(id _Nullable responseObject){
         NSMutableArray *charges = @[].mutableCopy;
         NSArray *response = responseObject[@"response"];
         
@@ -201,17 +197,16 @@ NSString * const PinChargeQuerySortField_toString[] = {
             [charges addObject:[PinCharge chargeFromDictionary:c]];
         }
         block(charges, nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }
 
 + (void)fetchChargeDetailsInBackground:(nonnull NSString*)chargeToken block:(nonnull PinChargeResultBlock)block {
-    AFHTTPSessionManager *manager = [PinClient configuredSessionManager:RequestSerializerStandard];
-    [manager GET:[NSString stringWithFormat:@"%@/%@", @"charges", chargeToken] parameters:nil progress:nil success:^(NSURLSessionDataTask *task , id _Nullable responseObject){
+    [PinRequest GET:[NSString stringWithFormat:@"%@/%@", @"charges", chargeToken] parameters:nil success:^(id _Nullable responseObject){
         PinCharge *charge = [PinCharge chargeFromDictionary: responseObject[@"response"]];
         block(charge, nil);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
+    } failure:^(NSError *error) {
         block(nil, error);
     }];
 }
