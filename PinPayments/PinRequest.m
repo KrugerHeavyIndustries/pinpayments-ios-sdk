@@ -25,31 +25,65 @@
 
 #import "PinRequest.h"
 #import "PinClient.h"
+#import "PinDefaultAuthorizer.h"
 
 NSString const *PinRequestFailingURLResponseErrorDomain = @"com.pinpayments.response.error";
 NSString const *PinRequestFailingURLResponseDataErrorKey = @"com.pinpayments.response.error.data";
 
+@interface AllowSelfSignedCertificate : NSObject
+@end
+
+@interface AllowSelfSignedCertificate ()<NSURLSessionDelegate>
+@end
+
+@implementation AllowSelfSignedCertificate
+
+- (void) URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+    completionHandler(NSURLSessionAuthChallengeUseCredential, [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]);
+}
+@end
+
+@interface PinRequest()
+
++(Class)authorizer;
+
+@end
+
 @implementation PinRequest
 
++(Class)authorizer {
+    static id authorizer = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class authorizerClass = NSClassFromString(@"PinAuthorizer");
+        if (!authorizerClass) {
+            authorizerClass = [PinDefaultAuthorizer class];
+        }
+        authorizer = [authorizerClass new];
+    });
+    return authorizer;
+}
+
 + (void)perform:(NSString*)method resource:(NSString*)resource contentType:(NSString*)contentType parameters:(NSDictionary*)parameters success:(void (^)(id _Nullable))success failure:(void (^)(NSError * _Nonnull))failure {
-    
+
     PinClientConfiguration* configuration = [PinClient currentConfiguration];
     
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:nil delegateQueue:nil];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:[AllowSelfSignedCertificate new] delegateQueue:nil];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:resource relativeToURL:configuration.baseURL]];
     request.HTTPMethod = method;
-    
+    [[PinRequest authorizer] makeAuthorization:request];
+
     if (contentType) {
         [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
         if ([contentType caseInsensitiveCompare:@"application/json"] == NSOrderedSame) {
             if (parameters) {
-                [request setHTTPBody: [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil]];
+                [request setHTTPBody: [NSJSONSerialization dataWithJSONObject:parameters options:NSJSONWritingPrettyPrinted error:nil]];
             }
         }
     }
-    
+
     __block NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -68,6 +102,8 @@ NSString const *PinRequestFailingURLResponseDataErrorKey = @"com.pinpayments.res
                     success(nil);
                 }
             }
+        } else if (error) {
+            failure(error);
         }
     }];
     

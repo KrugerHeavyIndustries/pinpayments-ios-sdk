@@ -24,6 +24,8 @@
 		B16554E71F1511A600642E09 /* PinClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554E61F1511A600642E09 /* PinClientConfiguration.m */; };
 		B16554ED1F15192400642E09 /* PinClientConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */; };
 		B16554EE1F15192400642E09 /* PinClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B16554EB1F15192400642E09 /* PinClientTests.m */; };
+		B186236A224A1C9700BE1C8A /* PinDefaultAuthorizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1862368224A1C9700BE1C8A /* PinDefaultAuthorizer.m */; };
+		B186236B224A1C9700BE1C8A /* PinDefaultAuthorizer.h in Headers */ = {isa = PBXBuildFile; fileRef = B1862369224A1C9700BE1C8A /* PinDefaultAuthorizer.h */; };
 		B18F1F0D21F98E2600E27728 /* charges-error.json in Resources */ = {isa = PBXBuildFile; fileRef = B18F1F0C21F98E2600E27728 /* charges-error.json */; };
 		B18F1F0E21F98EFB00E27728 /* PinChargeErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B18F1F0A21F98D5300E27728 /* PinChargeErrorTests.m */; };
 		B18F1F0F21F98FB400E27728 /* charges-error.json in Resources */ = {isa = PBXBuildFile; fileRef = B18F1F0C21F98E2600E27728 /* charges-error.json */; };
@@ -65,7 +67,7 @@
 		B1D5CC991FEA48170011C0F0 /* recipients-get.json in Resources */ = {isa = PBXBuildFile; fileRef = B1D5CC951FEA48100011C0F0 /* recipients-get.json */; };
 		B1D5CC9A1FEA481A0011C0F0 /* recipients-post.json in Resources */ = {isa = PBXBuildFile; fileRef = B1D5CC961FEA48100011C0F0 /* recipients-post.json */; };
 		B1DE65D3221FD54E0058EEE6 /* PinRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE65D2221FD54E0058EEE6 /* PinRequest.m */; };
-		B1DE65D4221FDB450058EEE6 /* PinRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DE65D1221FD3D30058EEE6 /* PinRequest.h */; };
+		B1DE65D4221FDB450058EEE6 /* PinRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DE65D1221FD3D30058EEE6 /* PinRequest.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		B16554E91F15192400642E09 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
 		B16554EA1F15192400642E09 /* PinClientConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClientConfigurationTests.m; path = Tests/PinClientConfigurationTests.m; sourceTree = "<group>"; };
 		B16554EB1F15192400642E09 /* PinClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinClientTests.m; path = Tests/PinClientTests.m; sourceTree = "<group>"; };
+		B1862368224A1C9700BE1C8A /* PinDefaultAuthorizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinDefaultAuthorizer.m; path = PinPayments/PinDefaultAuthorizer.m; sourceTree = "<group>"; };
+		B1862369224A1C9700BE1C8A /* PinDefaultAuthorizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinDefaultAuthorizer.h; path = PinPayments/PinDefaultAuthorizer.h; sourceTree = "<group>"; };
 		B18F1F0A21F98D5300E27728 /* PinChargeErrorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PinChargeErrorTests.m; path = Tests/PinChargeErrorTests.m; sourceTree = "<group>"; };
 		B18F1F0C21F98E2600E27728 /* charges-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "charges-error.json"; sourceTree = "<group>"; };
 		B193D6CB1F0290D70066B172 /* PinPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PinPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +195,8 @@
 		B16554D81F150F6B00642E09 /* PinPayments */ = {
 			isa = PBXGroup;
 			children = (
+				B1862369224A1C9700BE1C8A /* PinDefaultAuthorizer.h */,
+				B1862368224A1C9700BE1C8A /* PinDefaultAuthorizer.m */,
 				B1F247BD1FC069B600526161 /* PinPayments.modulemap */,
 				B10E13E51F4AB7AE0066F85B /* Categories */,
 				B16554E31F150FB300642E09 /* Resources */,
@@ -311,14 +317,15 @@
 				B1A1C5D51FC06F4F00B9B427 /* PinPayments.h in Headers */,
 				B13608D21FDA317800BD6439 /* NSDateFormatter+iso8601.h in Headers */,
 				B10E13E81F4AB7E10066F85B /* NSObject+Json.h in Headers */,
+				B186236B224A1C9700BE1C8A /* PinDefaultAuthorizer.h in Headers */,
 				B16554E01F150FA400642E09 /* PinClientConfiguration.h in Headers */,
 				B15B96341F262EB600A51302 /* PinCustomer.h in Headers */,
 				B1BF4E141FEA0DF70029C631 /* PinTransfer.h in Headers */,
 				B1BF4E161FEA0DF70029C631 /* PinRecipient.h in Headers */,
 				B1BF4E091FEA09240029C631 /* PinBankAccount.h in Headers */,
 				B16554DE1F150FA400642E09 /* PinClient.h in Headers */,
-				B1DE65D4221FDB450058EEE6 /* PinRequest.h in Headers */,
 				B13608CF1FDA27F300BD6439 /* PinCard.h in Headers */,
+				B1DE65D4221FDB450058EEE6 /* PinRequest.h in Headers */,
 				B1BF8BAB1FE3C3890002312E /* PinBalance.h in Headers */,
 				B10E13DD1F4A8B630066F85B /* PinCharge.h in Headers */,
 			);
@@ -393,6 +400,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = B193D6C11F0290D70066B172;
@@ -537,6 +545,7 @@
 				B16554DF1F150FA400642E09 /* PinClient.m in Sources */,
 				B1BF4E061FEA07360029C631 /* PinBankAccount.h in Sources */,
 				B1BF4E081FEA07780029C631 /* PinBankAccount.m in Sources */,
+				B186236A224A1C9700BE1C8A /* PinDefaultAuthorizer.m in Sources */,
 				B1DE65D3221FD54E0058EEE6 /* PinRequest.m in Sources */,
 				B10E13E91F4AB7E10066F85B /* NSObject+Json.m in Sources */,
 				B15B96351F262EB600A51302 /* PinCustomer.m in Sources */,
