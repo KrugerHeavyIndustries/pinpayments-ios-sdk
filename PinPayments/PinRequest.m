@@ -45,13 +45,13 @@ NSString const *PinRequestFailingURLResponseDataErrorKey = @"com.pinpayments.res
 
 @interface PinRequest()
 
-+(Class)authorizer;
++(id)authorizer;
 
 @end
 
 @implementation PinRequest
 
-+(Class)authorizer {
++(id)authorizer {
     static id authorizer = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -68,8 +68,10 @@ NSString const *PinRequestFailingURLResponseDataErrorKey = @"com.pinpayments.res
 
     PinClientConfiguration* configuration = [PinClient currentConfiguration];
     
+    id<NSURLSessionDelegate> sessionDelegate = configuration.insecure ? [AllowSelfSignedCertificate new] : nil;
+
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:[AllowSelfSignedCertificate new] delegateQueue:nil];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:sessionDelegate delegateQueue:nil];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:resource relativeToURL:configuration.baseURL]];
     request.HTTPMethod = method;

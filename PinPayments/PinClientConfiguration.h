@@ -31,7 +31,6 @@
 @property (nullable, nonatomic, copy) NSString *publishableKey;
 @property (nullable, nonatomic, copy) NSString *secretKey;
 @property (nullable, nonatomic, copy) NSString *server;
-@property (nullable, nonatomic, copy) NSDictionary* customHTTPHeaders;
 @property (nonatomic, assign) BOOL insecure;
 @end
 
@@ -40,7 +39,6 @@
 @property (nullable, nonatomic, copy) NSString *publishableKey;
 @property (nullable, nonatomic, copy) NSString *secretKey;
 @property (nullable, nonatomic, copy) NSString *server;
-@property (nullable, nonatomic, copy) NSDictionary* customHTTPHeaders;
 @property (nonatomic, assign) BOOL insecure;
 @property (nullable, readonly) NSURL* baseURL;
 

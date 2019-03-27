@@ -41,6 +41,7 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
     if (!self) return nil;
     
     _server = [_PinDefaultServerURLString copy];
+    _insecure = NO;
     
     return self;
 }
@@ -78,10 +79,6 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
 
 - (void)setServer:(NSString *)server {
     _server = [server copy];
-}
-
-- (void)setCustomHTTPHeaders:(NSDictionary *)customHTTPHeaders {
-    _customHTTPHeaders = [customHTTPHeaders copy];
 }
 
 - (NSURL*)baseURL {

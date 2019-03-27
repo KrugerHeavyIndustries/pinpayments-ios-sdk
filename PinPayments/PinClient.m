@@ -4,7 +4,7 @@
 // |__|\__|___|__|_______|_______|_______|___|__|
 //        H E A V Y  I N D U S T R I E S
 //
-// Copyright (C) 2017 Kruger Heavy Industries
+// Copyright (C) 2019 Kruger Heavy Industries
 // http://www.krugerheavyindustries.com
 //
 // This software is provided 'as-is', without any express or implied
