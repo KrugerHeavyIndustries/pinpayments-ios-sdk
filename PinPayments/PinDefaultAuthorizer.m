@@ -34,7 +34,7 @@
     PinClientConfiguration* configuration = [PinClient currentConfiguration];
 
     NSData* authData = [[NSString stringWithFormat:@"%@:", configuration.secretKey] dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authorizationHeader = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedDataWithOptions:0]];
+    NSString *authorizationHeader = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
 
     [request setValue:authorizationHeader forHTTPHeaderField:@"Authorization"];
 }
