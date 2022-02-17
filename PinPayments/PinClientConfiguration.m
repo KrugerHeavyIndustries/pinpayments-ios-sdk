@@ -46,7 +46,7 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
     return self;
 }
 
-- (instancetype _Nonnull)initWithBlock:(void (^)(id<PinMutableClientConfiguration>))configurationBlock {
+- (instancetype _Nonnull)initWithBlock:(void (^_Nonnull)(id<PinMutableClientConfiguration>))configurationBlock {
     self = [self initEmpty];
     if (!self) return nil;
     
@@ -57,7 +57,7 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
     return self;
 }
 
-+ (instancetype)configurationWithBlock:(void (^)(id<PinMutableClientConfiguration>))configurationBlock {
++ (instancetype)configurationWithBlock:(void (^ _Nonnull)(id<PinMutableClientConfiguration>))configurationBlock {
     return [[self alloc] initWithBlock:configurationBlock];
 }
 
@@ -97,15 +97,15 @@ NSString *const _PinDefaultTestServerURLString = @"https://test-api.pin.net.au/1
 ///--------------------------------------
 
 - (instancetype)copyWithZone:(NSZone *)zone {
-    return [PinClientConfiguration configurationWithBlock:^(PinClientConfiguration *configuration) {
-        configuration->_applicationId = [self->_applicationId copy];
-        configuration->_secretKey = [self->_secretKey copy];
-        configuration->_publishableKey = [self->_publishableKey copy];
-        configuration->_server = [self->_server copy];
-        configuration->_insecure = self->_insecure;
-    }];
+    PinClientConfiguration *const configuration = [[PinClientConfiguration alloc] initEmpty];
+    if (configuration == nil)
+        return nil;
+
+    configuration->_applicationId = [self->_applicationId copy];
+    configuration->_secretKey = [self->_secretKey copy];
+    configuration->_publishableKey = [self->_publishableKey copy];
+    configuration->_server = [self->_server copy];
+    configuration->_insecure = self->_insecure;
+    return configuration;
 }
-
-
-
 @end
