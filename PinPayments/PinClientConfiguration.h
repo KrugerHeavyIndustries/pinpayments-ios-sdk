@@ -42,7 +42,7 @@
 @property (nonatomic, assign) BOOL insecure;
 @property (nullable, readonly) NSURL* baseURL;
 
-+ (nonnull instancetype)configurationWithBlock:(void (^_Nullable)(_Nullable id<PinMutableClientConfiguration>))configurationBlock;
++ (nonnull instancetype)configurationWithBlock:(void (^_Nonnull)( id<PinMutableClientConfiguration>_Nonnull))configurationBlock;
 
 + (nonnull instancetype)new NS_UNAVAILABLE;
 + (nonnull instancetype)init NS_UNAVAILABLE;
